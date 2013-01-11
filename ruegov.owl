@@ -1,0 +1,1871 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:Countries="http://www.bpiresearch.com/BPMO/2004/03/03/cdl/Countries#"
+    xmlns:gc="http://www.oegov.org/core/owl/gc#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:gov="http://www.oegov.org/core/owl/gov#"
+    xmlns:cc="http://creativecommons.org/ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rugov="http://schema.opengovdata/v01/ruegov#"
+    xmlns:owl11="http://www.w3.org/2006/12/owl11#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://schema.opengovdata/v01/ruegov">
+  <owl:Ontology rdf:about="">
+    <dc:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ruegov Ontology</dc:title>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Ontology of Russian Government</dc:description>
+    <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >$Date: 2009-12-30 15:20:08 -0700 (Wed, 30 Dec 2009) $</dc:date>
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Created with TopBraid Composer</owl:versionInfo>
+    <owl:imports rdf:resource="http://www.oegov.org/core/owl/oe1gov"/>
+    <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Ivan Begtin</dc:creator>
+    <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+    <owl:imports rdf:resource="http://purl.org/dc/terms/"/>
+    <owl:imports rdf:resource="http://creativecommons.org/schema.rdf"/>
+    <owl:imports rdf:resource="http://purl.org/dc/dcam/"/>
+    <owl:imports rdf:resource="http://www.oegov.org/core/owl/gc"/>
+    <owl:imports rdf:resource="http://aims.fao.org/aos/geopolitical.owl"/>
+  </owl:Ontology>
+  <owl:Class rdf:ID="Region">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Region</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="AuthorityWebSite">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Официальный сайт органа государственной власти</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="WebSite"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="ProcurementWebSite">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#WebSite"/>
+    </rdfs:subClassOf>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Сайты государственных и муниципальных закупок</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Сайты государственных и муниципальных закупок</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Academy">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Академия</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <rdfs:subClassOf rdf:resource="http://www.oegov.org/core/owl/gov#EducationalBody"/>
+  </owl:Class>
+  <owl:Class rdf:ID="FederalAgency">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Федеральное агентcтво</dc:description>
+    <rdfs:subClassOf rdf:resource="http://www.oegov.org/core/owl/gov#Authority"/>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Федеральное агентcтво</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.oegov.org/core/owl/gov#ExecutiveBranch"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Foundation">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Фонд</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <rdfs:subClassOf>
+      <rdf:Description rdf:about="http://www.oegov.org/core/owl/gov#Body">
+        <rdfs:subClassOf>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:DatatypeProperty rdf:ID="okogu"/>
+            </owl:onProperty>
+            <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+            >1</owl:maxCardinality>
+          </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:DatatypeProperty rdf:ID="shortname"/>
+            </owl:onProperty>
+            <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+            >1</owl:maxCardinality>
+          </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:DatatypeProperty rdf:ID="GRBSCode"/>
+            </owl:onProperty>
+            <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+            >1</owl:maxCardinality>
+          </owl:Restriction>
+        </rdfs:subClassOf>
+      </rdf:Description>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="FederalMinistry">
+    <rdfs:subClassOf rdf:resource="http://www.oegov.org/core/owl/gov#Authority"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Министерство</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Министерство</dc:description>
+    <rdfs:subClassOf rdf:resource="http://www.oegov.org/core/owl/gov#ExecutiveBranch"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ContractsWebSite">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#WebSite"/>
+    </rdfs:subClassOf>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Сайты раскрытия информации о государственных контрактах</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Сайты раскрытия информации о государственных контрактах</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="GovServicesWebSite">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#WebSite"/>
+    </rdfs:subClassOf>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Gov services web site</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="FederalService">
+    <rdfs:subClassOf rdf:resource="http://www.oegov.org/core/owl/gov#Authority"/>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Федеральная служба</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Федеральная служба</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.oegov.org/core/owl/gov#ExecutiveBranch"/>
+  </owl:Class>
+  <owl:Class rdf:ID="BlogWebSite">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Блог</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#WebSite"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#WebSite">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="http://www.oegov.org/core/owl/gov#Body"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.oegov.org/core/owl/gov#managedBy"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.oegov.org/core/owl/gov#WebSite"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Russian Government Web site</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="ProjectWebSite">
+    <rdfs:subClassOf rdf:resource="#WebSite"/>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Project web site</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="RegionWebSite">
+    <rdfs:subClassOf rdf:resource="#WebSite"/>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Region web site</rdfs:label>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="http://www.oegov.org/core/owl/gc#managedBy">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Managed by</rdfs:label>
+    <owl:inverseOf rdf:resource="http://www.oegov.org/core/owl/gov#manages"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.oegov.org/core/owl/gov#managedBy">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >managed by</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="#okogu">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ОКОГУ</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#shortname">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Краткое название органа государственной власти</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#GRBSCode">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Код ГРБС</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <rugov:FederalService rdf:ID="FederalCustomsService">
+    <gov:reportsTo>
+      <gov:NationalGovernment rdf:ID="FederalGovernment">
+        <gov:reportsTo>
+          <gov:Administration rdf:ID="RussianPresident">
+            <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.president.ru</gc:url>
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Russian president</rdfs:label>
+            <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >ru</dc:language>
+            <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Президент Российской Федерации</dc:description>
+            <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+            >http://www.kremlin.ru</gc:url>
+          </gov:Administration>
+        </gov:reportsTo>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Federal government</rdfs:label>
+        <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ru</dc:language>
+        <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Правительство Российской Федерации</dc:description>
+        <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.government.ru</gc:url>
+      </gov:NationalGovernment>
+    </gov:reportsTo>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.customs.ru</gc:url>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >153</rugov:GRBSCode>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Федеральная таможенная служба</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal customs service</rdfs:label>
+  </rugov:FederalService>
+  <rugov:ProcurementWebSite rdf:ID="ZakupkiGovRu">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Официальный сайт для размещения информации о размещении заказов</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Официальный сайт для размещения информации о размещении заказов</dc:description>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://zakupki.gov.ru</gc:url>
+    <gov:managedBy>
+      <rugov:FederalMinistry rdf:ID="MinistryOfEconomicDevelopment">
+        <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >140</rugov:GRBSCode>
+        <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        ></dc:description>
+        <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ru</dc:language>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Минэкономразвития России</rdfs:label>
+        <gov:reportsTo rdf:resource="#FederalGovernment"/>
+        <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Минэкономразвития России</rugov:shortname>
+        <rugov:okogu rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >13320</rugov:okogu>
+      </rugov:FederalMinistry>
+    </gov:managedBy>
+  </rugov:ProcurementWebSite>
+  <rugov:FederalService rdf:ID="FederalServiceForTheOversightOfNaturalResources">
+    <gov:reportsTo>
+      <rugov:FederalMinistry rdf:ID="MinistryOfNaturalResourcesAndEcology">
+        <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Министерство природных ресурсов и экологии Российской Федерации</dc:description>
+        <gov:reportsTo rdf:resource="#FederalGovernment"/>
+        <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.mnr.gov.ru</gc:url>
+        <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >051</rugov:GRBSCode>
+        <rugov:okogu rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >13250</rugov:okogu>
+        <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Минприроды России</rugov:shortname>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Министерство природных ресурсов и экологии Российской Федерации</rdfs:label>
+        <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ru</dc:language>
+      </rugov:FederalMinistry>
+    </gov:reportsTo>
+    <rugov:okogu rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >13252</rugov:okogu>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >048</rugov:GRBSCode>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://control.mnr.gov.ru/</gc:url>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal service for the oversight of natural resources</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalService>
+  <gov:Assembly rdf:ID="FedCouncil">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Fed council</rdfs:label>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Совет Федерации</rugov:shortname>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://council.gov.ru</gc:url>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >333</rugov:GRBSCode>
+    <rdf:type rdf:resource="http://www.oegov.org/core/owl/gov#LegislativeBranch"/>
+  </gov:Assembly>
+  <rugov:FederalMinistry rdf:ID="MinistryOfEnergy">
+    <rugov:okogu rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >13360</rugov:okogu>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Минэнерго России</rugov:shortname>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >022</rugov:GRBSCode>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Министерство энергетики Российской Федерации</dc:description>
+    <gov:reportsTo rdf:resource="#FederalGovernment"/>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://minenergo.gov.ru/</gc:url>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Min energo</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+  </rugov:FederalMinistry>
+  <rugov:FederalService rdf:ID="FederalServiceForLabourAndEmployment">
+    <gov:reportsTo>
+      <rugov:FederalMinistry rdf:ID="MinistryOfHealthAndSocialDevelopment">
+        <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        ></dc:description>
+        <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ru</dc:language>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Министерство здравоохранения и социального развития</rdfs:label>
+        <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Минздравсоцразвития России</rugov:shortname>
+        <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.minzdravsoc.ru/</gc:url>
+        <gov:reportsTo rdf:resource="#FederalGovernment"/>
+      </rugov:FederalMinistry>
+    </gov:reportsTo>
+    <rugov:okogu rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >13225</rugov:okogu>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >150</rugov:GRBSCode>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal service for labour and employment</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalService>
+  <rugov:Academy rdf:ID="RussianAcademyOfMedicalScience">
+    <gov:reportsTo rdf:resource="#FederalGovernment"/>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >423</rugov:GRBSCode>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Russian academy of medical science</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:Academy>
+  <rugov:FederalService rdf:ID="FederalAgencyForTheOversightOfTransport">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal agency for the oversight of transport</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <gov:reportsTo>
+      <rugov:FederalMinistry rdf:ID="MinistryOfTransport">
+        <gov:reportsTo rdf:resource="#FederalGovernment"/>
+        <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >103</rugov:GRBSCode>
+        <rugov:okogu rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >13280</rugov:okogu>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Ministry of transport</rdfs:label>
+        <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ru</dc:language>
+        <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        ></dc:description>
+      </rugov:FederalMinistry>
+    </gov:reportsTo>
+  </rugov:FederalService>
+  <rugov:RegionWebSite rdf:ID="MoscowWebSite">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Moscow web site</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Официальный сайт города федерального значения Москвы</dc:description>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.mos.ru</gc:url>
+  </rugov:RegionWebSite>
+  <gov:Theatre rdf:ID="BolshoiTheatre">
+    <gov:reportsTo rdf:resource="#FederalGovernment"/>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.bolshoi.ru</gc:url>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >409</rugov:GRBSCode>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ГАБТ России</rugov:shortname>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Государственный академический Большой театр России</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Bolshoi theatre</rdfs:label>
+  </gov:Theatre>
+  <gov:Commission rdf:ID="CentralElectionComission">
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru	</dc:language>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ЦИК России</rugov:shortname>
+    <rugov:okogu rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >15053</rugov:okogu>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >308</rugov:GRBSCode>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Central election comission</rdfs:label>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Центральная избирательная комиссия Российской Федерации</dc:description>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.cikrf.ru</gc:url>
+  </gov:Commission>
+  <rugov:ProjectWebSite rdf:ID="ArEconomyGovRu">
+    <gov:managedBy rdf:resource="#MinistryOfEconomicDevelopment"/>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Портал "Административная реформа в Российской Федерации"</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Ar economy gov ru</rdfs:label>
+  </rugov:ProjectWebSite>
+  <rugov:FederalAgency rdf:ID="ChiefDirectorateOfSpecialPrograms">
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.gusp.gov.ru</gc:url>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >304</rugov:GRBSCode>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ГУСП России</rugov:shortname>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Chief directorate of special programs</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalAgency>
+  <gov:Authority rdf:ID="AccountingChamberOfRussianFederation">
+    <rugov:okogu rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >15051</rugov:okogu>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >305</rugov:GRBSCode>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Accounting chamber of russian federation</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Счетная Палата Российской Федерации</dc:description>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ach.gov.ru</gc:url>
+  </gov:Authority>
+  <rugov:FederalAgency rdf:ID="FederalAgencyForInformationTechnology">
+    <rugov:okogu rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >13293</rugov:okogu>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >088</rugov:GRBSCode>
+    <gov:reportsTo>
+      <rugov:FederalMinistry rdf:ID="MinistryOfCommunicationsAndMassMedia">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Министерство связи и массовых коммуникаций Российской Федерации</rdfs:label>
+        <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ru</dc:language>
+        <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        ></dc:description>
+        <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Минкомсвязь России</rugov:shortname>
+        <rugov:okogu rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >13290</rugov:okogu>
+        <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >071</rugov:GRBSCode>
+        <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.minsvyaz.ru</gc:url>
+        <gov:reportsTo rdf:resource="#FederalGovernment"/>
+      </rugov:FederalMinistry>
+    </gov:reportsTo>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal agency for information technology</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalAgency>
+  <rugov:Academy rdf:ID="RussianAcademyOfArchitectureAndConstructionSciences">
+    <gov:reportsTo rdf:resource="#FederalGovernment"/>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >677</rugov:GRBSCode>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >РААСН</rugov:shortname>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.raasn.ru</gc:url>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Российская академия архитектуры и строительных наук</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Российская академия архитектуры и строительных наук</rdfs:label>
+  </rugov:Academy>
+  <rugov:FederalAgency rdf:ID="DirectorateOfThePresident">
+    <gov:reportsTo rdf:resource="#RussianPresident"/>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >303</rugov:GRBSCode>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Directorate of the president</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalAgency>
+  <rugov:FederalService rdf:ID="FederalServiceForHydrometeorologyAndEnvironmentalMonitoring">
+    <gov:reportsTo rdf:resource="#MinistryOfNaturalResourcesAndEcology"/>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >169</rugov:GRBSCode>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal service for hydrometeorology and environmental monitoring</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalService>
+  <rugov:FederalService rdf:ID="FederalInsuranceService">
+    <rugov:okogu rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >13313</rugov:okogu>
+    <gov:reportsTo>
+      <rugov:FederalMinistry rdf:ID="MinistryOfFinances">
+        <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Министерство Финансов Российской Федерации</dc:description>
+        <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >092</rugov:GRBSCode>
+        <rugov:okogu rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >13310</rugov:okogu>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >МинФин России</rdfs:label>
+        <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ru</dc:language>
+        <gov:reportsTo rdf:resource="#FederalGovernment"/>
+        <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.minfin.ru</gc:url>
+        <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Минфин России</rugov:shortname>
+      </rugov:FederalMinistry>
+    </gov:reportsTo>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal insurance service</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalService>
+  <rugov:FederalMinistry rdf:ID="MinistryOfRegionalDevelopment">
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.minregion.ru</gc:url>
+    <gov:reportsTo rdf:resource="#FederalGovernment"/>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >309</rugov:GRBSCode>
+    <rugov:okogu rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >13330</rugov:okogu>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Министерство регионального развития Российской Федерации</rdfs:label>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Минрегион России</rugov:shortname>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalMinistry>
+  <rugov:FederalService rdf:ID="FederalServiceOfRegistrationKadastrAndCartography">
+    <gov:reportsTo rdf:resource="#MinistryOfEconomicDevelopment"/>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.rosreestr.ru</gc:url>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.rosregistr.ru</gc:url>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Росреестр</rugov:shortname>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal service of registration kadastr and cartography</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalService>
+  <gov:Office rdf:ID="InvestigatoryCommitteeAtProsecutorOffice">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Investigatory committee at prosecutor office</rdfs:label>
+    <gov:reportsTo>
+      <gov:Office rdf:ID="ProsecutorsGeneralsOffice">
+        <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        ></dc:description>
+        <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ru</dc:language>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Prosecutors generals office</rdfs:label>
+        <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >415</rugov:GRBSCode>
+      </gov:Office>
+    </gov:reportsTo>
+  </gov:Office>
+  <rugov:FederalService rdf:ID="FederalTaxService">
+    <gov:reportsTo rdf:resource="#MinistryOfFinances"/>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.nalog.ru</gc:url>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ФНС России</rugov:shortname>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal tax service</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalService>
+  <rugov:FederalAgency rdf:ID="FederalAgencyForSupervisionInEducationAndScience">
+    <gov:reportsTo>
+      <rugov:FederalMinistry rdf:ID="MinistryOfEducationAndScience">
+        <gov:reportsTo rdf:resource="#FederalGovernment"/>
+        <rugov:okogu rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >13240</rugov:okogu>
+        <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >074</rugov:GRBSCode>
+        <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://mon.gov.ru</gc:url>
+        <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Минобрнауки России</rugov:shortname>
+        <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ru</dc:language>
+        <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Министерство образования и науки Российской Федерации</dc:description>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Министерство образования и науки Российской Федерации</rdfs:label>
+      </rugov:FederalMinistry>
+    </gov:reportsTo>
+    <rugov:okogu rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >13242</rugov:okogu>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >077</rugov:GRBSCode>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Рособрнадзор</rugov:shortname>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.obrnadzor.gov.ru</gc:url>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal agency for supervision in education and science</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalAgency>
+  <rugov:FederalService rdf:ID="FederalServiceOfDefenseProcurement">
+    <gov:reportsTo>
+      <rugov:FederalMinistry rdf:ID="MinistryOfDefense">
+        <gov:reportsTo rdf:resource="#RussianPresident"/>
+        <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        ></dc:description>
+        <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ru</dc:language>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Min of defense</rdfs:label>
+        <rugov:okogu rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >13160</rugov:okogu>
+        <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Минобороны России</rugov:shortname>
+        <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.mil.ru</gc:url>
+      </rugov:FederalMinistry>
+    </gov:reportsTo>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.fsoz.gov.ru</gc:url>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >185</rugov:GRBSCode>
+    <rugov:okogu rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >13163</rugov:okogu>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Рособоронзаказ</rugov:shortname>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Федеральная служба оборонного заказа</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal service of defense procurement</rdfs:label>
+  </rugov:FederalService>
+  <rugov:FederalService rdf:ID="FederalMigrationService">
+    <gov:reportsTo>
+      <rugov:FederalMinistry rdf:ID="MinistryOfInternalAffairs">
+        <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        ></dc:description>
+        <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ru</dc:language>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Min of internal affairs</rdfs:label>
+        <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >188</rugov:GRBSCode>
+        <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.mvd.ru</gc:url>
+        <gov:reportsTo rdf:resource="#RussianPresident"/>
+      </rugov:FederalMinistry>
+    </gov:reportsTo>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.fms.gov.ru</gc:url>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ФМС России</rugov:shortname>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >192</rugov:GRBSCode>
+    <rugov:okogu rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >13112</rugov:okogu>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal migration service</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalService>
+  <rugov:FederalAgency rdf:ID="FederalMedicalBiologicalAgency">
+    <rugov:okogu rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >13225</rugov:okogu>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >388</rugov:GRBSCode>
+    <gov:reportsTo rdf:resource="#MinistryOfHealthAndSocialDevelopment"/>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.fmbaros.ru</gc:url>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ФМБА России</rugov:shortname>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Федеральное медико-биологическое агентство</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal medical biological agency</rdfs:label>
+  </rugov:FederalAgency>
+  <rugov:FederalAgency rdf:ID="FederalAirTransportAgency">
+    <gov:reportsTo rdf:resource="#MinistryOfTransport"/>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.favt.ru</gc:url>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >107</rugov:GRBSCode>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Росавиация</rugov:shortname>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal air transport agency</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalAgency>
+  <rugov:FederalService rdf:ID="FederalServiceOfMilitaryTechnicalCooperation">
+    <gov:reportsTo rdf:resource="#MinistryOfDefense"/>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.fsvts.gov.ru</gc:url>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >721</rugov:GRBSCode>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ФСВТС России</rugov:shortname>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal service of military technical cooperation</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalService>
+  <rugov:FederalAgency rdf:ID="FederalAgencyForRailwayTransport">
+    <gov:reportsTo rdf:resource="#MinistryOfTransport"/>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >109</rugov:GRBSCode>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Росжелдор</rugov:shortname>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.roszeldor.ru</gc:url>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal agency for railway transport</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalAgency>
+  <rugov:FederalAgency rdf:ID="FederalAgencyForTourism">
+    <gov:reportsTo>
+      <rugov:FederalMinistry rdf:ID="MinistryOfSportTourismAndYouthPolicy">
+        <gov:reportsTo rdf:resource="#FederalGovernment"/>
+        <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >777</rugov:GRBSCode>
+        <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Минспорттуризм России</rugov:shortname>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Ministry of sport tourism and youth policy</rdfs:label>
+        <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ru</dc:language>
+        <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        ></dc:description>
+      </rugov:FederalMinistry>
+    </gov:reportsTo>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal agency for tourism</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalAgency>
+  <rugov:FederalAgency rdf:ID="FederalAgencyForConstructionOfStateBorder">
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.rosgranitsa.ru</gc:url>
+    <gov:reportsTo rdf:resource="#FederalGovernment"/>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >260</rugov:GRBSCode>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Росграница</rugov:shortname>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal agency for construction of state border</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalAgency>
+  <rugov:FederalAgency rdf:ID="FederalAgencyOfForeignCooperation">
+    <gov:reportsTo>
+      <rugov:FederalMinistry rdf:ID="MinistryOfForeignAffairs">
+        <gov:reportsTo rdf:resource="#RussianPresident"/>
+        <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        ></dc:description>
+        <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ru</dc:language>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Min of foreign affairs</rdfs:label>
+        <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.mid.ru</gc:url>
+      </rugov:FederalMinistry>
+    </gov:reportsTo>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >095</rugov:GRBSCode>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://rs.gov.ru</gc:url>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Россотрудничество</rugov:shortname>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal agency of foreign cooperation</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalAgency>
+  <gov:FinancialInstitute rdf:ID="PensionFund">
+    <gov:reportsTo rdf:resource="#FederalGovernment"/>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.pfrf.ru</gc:url>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ПФР</rugov:shortname>
+    <rugov:okogu rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >15013</rugov:okogu>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Pension fund</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+  </gov:FinancialInstitute>
+  <rugov:BlogWebSite rdf:ID="StanislavnaumovRu">
+    <gov:managedBy>
+      <rugov:FederalMinistry rdf:ID="MinistryOfIndustryAndTrade">
+        <gov:reportsTo rdf:resource="#FederalGovernment"/>
+        <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.minprom.gov.ru/</gc:url>
+        <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        ></dc:description>
+        <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ru</dc:language>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Министерство промышленности и торговли Российской Федерации</rdfs:label>
+        <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >020</rugov:GRBSCode>
+        <rugov:okogu rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >13260</rugov:okogu>
+        <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Минпромторговли России</rugov:shortname>
+      </rugov:FederalMinistry>
+    </gov:managedBy>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Stanislavnaumov ru</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:BlogWebSite>
+  <rugov:FederalService rdf:ID="FederalServiceForEnvironmentalTechnologicalAndNuclearSupervision">
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >498</rugov:GRBSCode>
+    <gov:reportsTo rdf:resource="#MinistryOfNaturalResourcesAndEcology"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal service for environmental technological and nuclear supervision</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalService>
+  <rugov:WebSite rdf:ID="President">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></rdfs:comment>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.kremlin.ru</gc:url>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Russian President</rdfs:label>
+    <gov:managedBy rdf:resource="#RussianPresident"/>
+  </rugov:WebSite>
+  <gov:University rdf:ID="MoscowStateUniversity">
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >386</rugov:GRBSCode>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >МГУ</rugov:shortname>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.msu.ru</gc:url>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Moscow state university</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </gov:University>
+  <rugov:FederalAgency rdf:ID="FederalAgencyOfManagementOfSpecialEconomicZones">
+    <gov:reportsTo rdf:resource="#MinistryOfEconomicDevelopment"/>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >142</rugov:GRBSCode>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >РосОЭЗ</rugov:shortname>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal agency of management of special economic zones</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalAgency>
+  <rugov:FederalService rdf:ID="FederalServiceOfStateStatistics">
+    <gov:reportsTo rdf:resource="#MinistryOfEconomicDevelopment"/>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.gks.ru</gc:url>
+    <rugov:okogu rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >13321</rugov:okogu>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >157</rugov:GRBSCode>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Росстат</rugov:shortname>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal service of state statistics</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalService>
+  <rugov:FederalService rdf:ID="FederalServiceOfExecutionofPunishments">
+    <gov:reportsTo>
+      <rugov:FederalMinistry rdf:ID="MinistryOfJustice">
+        <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        ></dc:description>
+        <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ru</dc:language>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Min of justice</rdfs:label>
+        <rugov:okogu rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >13170</rugov:okogu>
+        <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.minjust.ru</gc:url>
+        <gov:reportsTo rdf:resource="#RussianPresident"/>
+      </rugov:FederalMinistry>
+    </gov:reportsTo>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.fsin.su</gc:url>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >320</rugov:GRBSCode>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ФСИН России</rugov:shortname>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal service of executionof punishments</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalService>
+  <rugov:FederalService rdf:ID="FederalSecurityService">
+    <rugov:okogu rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >13194</rugov:okogu>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.fsb.ru</gc:url>
+    <gov:reportsTo rdf:resource="#RussianPresident"/>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ФСБ России</rugov:shortname>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal security service</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalService>
+  <gov:Authority rdf:ID="OmbudsmanOfRussianFederation">
+    <gov:reportsTo>
+      <gov:LegislativeBranch rdf:ID="DumaRF">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Государственная Дума</rdfs:label>
+        <gc:hashtag rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >fed-duma</gc:hashtag>
+        <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.duma.ru</gc:url>
+        <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Государственная Дума</rugov:shortname>
+        <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ru</dc:language>
+        <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Государственная дума Российской Федерации</dc:description>
+        <rdf:type rdf:resource="http://www.oegov.org/core/owl/gov#Assembly"/>
+      </gov:LegislativeBranch>
+    </gov:reportsTo>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Уполномоченный по правам человека в Российской Федерации</rdfs:label>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Уполномоченный по правам человека в Российской Федерации</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru	</dc:language>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ombudsman.gov.ru</gc:url>
+    <rugov:okogu rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >15060</rugov:okogu>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >302</rugov:GRBSCode>
+  </gov:Authority>
+  <rugov:FederalAgency rdf:ID="FederalAgencyForVeterinaryAndPhytosanitarySupervision">
+    <gov:reportsTo>
+      <rugov:FederalMinistry rdf:ID="MinistryOfAgriculture">
+        <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        ></dc:description>
+        <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ru</dc:language>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Min sel khoz</rdfs:label>
+        <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.mcx.ru</gc:url>
+        <gov:reportsTo rdf:resource="#FederalGovernment"/>
+      </rugov:FederalMinistry>
+    </gov:reportsTo>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >081</rugov:GRBSCode>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal agency for veterinary and phytosanitary supervision</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalAgency>
+  <rugov:ProcurementWebSite rdf:ID="ProcurementRNPWebSite">
+    <gov:managedBy>
+      <rugov:FederalService rdf:ID="FederalAntimonopolyService">
+        <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Федеральная антимонопольная служба Российской Федерации</dc:description>
+        <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ru</dc:language>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Федеральная антимонопольная служба Российской Федерации</rdfs:label>
+        <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ФАС России</rugov:shortname>
+        <gov:reportsTo rdf:resource="#FederalGovernment"/>
+      </rugov:FederalService>
+    </gov:managedBy>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://rnp.fas.gov.ru</gc:url>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Реестр недобросовестных поставщиков</dc:description>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Реестр недобросовестных поставщиков</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+  </rugov:ProcurementWebSite>
+  <gov:Corporation rdf:ID="RosAtomCorp">
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.rosatom.ru</gc:url>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Государственная корпорация по атомной энергии Росатом</dc:description>
+    <rugov:okogu rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >41005</rugov:okogu>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Государственная корпорация по атомной энергии Росатом</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >725</rugov:GRBSCode>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Росатом</rugov:shortname>
+  </gov:Corporation>
+  <rugov:FederalService rdf:ID="FederalServiceOnControlOverTurnoverOfDrugs">
+    <rugov:okogu rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >13195</rugov:okogu>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >204</rugov:GRBSCode>
+    <gov:reportsTo rdf:resource="#RussianPresident"/>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.fskn.gov.ru</gc:url>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ФСКН России</rugov:shortname>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Федеральная служба Российской Федерации по контролю за оборотом наркотиков</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal service on control over turnover of drugs</rdfs:label>
+  </rugov:FederalService>
+  <rugov:FederalService rdf:ID="FederalServiceOfCourtBailiff">
+    <gov:reportsTo rdf:resource="#MinistryOfJustice"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal service of court bailiff</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalService>
+  <rugov:FederalAgency rdf:ID="FederalAgencyOfSpecialConstruction">
+    <gov:reportsTo rdf:resource="#MinistryOfDefense"/>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal service of special construction</rdfs:label>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >279</rugov:GRBSCode>
+  </rugov:FederalAgency>
+  <rugov:FederalAgency rdf:ID="FederalAgencyOfDeliveriesOfArms">
+    <gov:reportsTo rdf:resource="#FederalGovernment"/>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Росвооружение</rugov:shortname>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >186</rugov:GRBSCode>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Федеральное агентство по поставкам вооружения, военной, специальной техники и материальных средств</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal agency of deliveries of arms</rdfs:label>
+  </rugov:FederalAgency>
+  <rugov:FederalService rdf:ID="StateSpecialCarrierService">
+    <gov:reportsTo rdf:resource="#RussianPresident"/>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.gfs.ru/</gc:url>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ГФС России</rugov:shortname>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >State special carrier service</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalService>
+  <gov:Bank rdf:ID="CentralBankOfRussia">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Центральный банк Российской Федерации</dc:description>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Центральный банк Российской Федерации</rdfs:label>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.cbr.ru</gc:url>
+    <gc:hashtag rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >CBR</gc:hashtag>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Центробанк России</rugov:shortname>
+    <rugov:okogu rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >15001</rugov:okogu>
+  </gov:Bank>
+  <gov:Court rdf:ID="ConstitutionCourt">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Constitution court</rdfs:label>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >КС РФ</rugov:shortname>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.ksrf.ru</gc:url>
+  </gov:Court>
+  <rugov:BlogWebSite rdf:ID="AlexeyrakhmanovRu">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Алексей Рахманов. Путеводитель по Российскому автопрому</dc:description>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Alexeyrakhmanov ru</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <gov:managedBy rdf:resource="#MinistryOfIndustryAndTrade"/>
+  </rugov:BlogWebSite>
+  <rugov:FederalAgency rdf:ID="FederalCommunicationsAgency">
+    <gov:reportsTo rdf:resource="#MinistryOfCommunicationsAndMassMedia"/>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal communications agency</rdfs:label>
+  </rugov:FederalAgency>
+  <rugov:FederalAgency rdf:ID="FederalArchivalAgency">
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://archives.ru</gc:url>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >155</rugov:GRBSCode>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Росархив</rugov:shortname>
+    <gov:reportsTo>
+      <rugov:FederalMinistry rdf:ID="MinistryOfCulture">
+        <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://mkrf.ru/</gc:url>
+        <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Министерство Культуры Российской Федерации</dc:description>
+        <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ru</dc:language>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Министерство Культуры Российской Федерации</rdfs:label>
+        <gov:reportsTo rdf:resource="#FederalGovernment"/>
+      </rugov:FederalMinistry>
+    </gov:reportsTo>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Федеральное архивное агентство</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal archival agency</rdfs:label>
+  </rugov:FederalAgency>
+  <rugov:FederalAgency rdf:ID="FederalAgencyForEducation">
+    <gov:reportsTo rdf:resource="#MinistryOfEducationAndScience"/>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal agency for educatin</rdfs:label>
+  </rugov:FederalAgency>
+  <rugov:FederalAgency rdf:ID="FederalAgencyOfWaterResources">
+    <gov:reportsTo rdf:resource="#MinistryOfNaturalResourcesAndEcology"/>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Росводресурсы</rugov:shortname>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://voda.mnr.gov.ru</gc:url>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >052</rugov:GRBSCode>
+    <rugov:okogu rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >13254</rugov:okogu>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Федеральное агентство водных ресурсов</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Федеральное агентство водных ресурсов</dc:description>
+  </rugov:FederalAgency>
+  <rugov:Foundation rdf:ID="GosfilmofondOfRussia">
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.gosfilmofond.ru</gc:url>
+    <gov:reportsTo rdf:resource="#FederalGovernment"/>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >591</rugov:GRBSCode>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Госфильмофонд</rugov:shortname>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Gosfilmofond of russia</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:Foundation>
+  <rugov:FederalAgency rdf:ID="FederalAgencyForYouth">
+    <gov:reportsTo rdf:resource="#MinistryOfSportTourismAndYouthPolicy"/>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >091</rugov:GRBSCode>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal agency for youth</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalAgency>
+  <rugov:FederalService rdf:ID="FederalServiceForTheOversightOfConsumerProtectionAndWelfare">
+    <gov:reportsTo rdf:resource="#MinistryOfHealthAndSocialDevelopment"/>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >141</rugov:GRBSCode>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Роспотребнадзор</rugov:shortname>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal service for the oversight of consumer protection and welfare</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalService>
+  <rugov:FederalService rdf:ID="FederalServiceOfTechnicalAndExportControl">
+    <gov:reportsTo rdf:resource="#MinistryOfDefense"/>
+    <rugov:okogu rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >13164</rugov:okogu>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal service of technical and export control</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalService>
+  <rugov:GovServicesWebSite rdf:ID="GosuslugiRu">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Справочно-информационный портал «Государственные услуги»</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Справочно-информационный портал «Государственные услуги»</dc:description>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.gosuslugi.ru</gc:url>
+    <gov:managedBy rdf:resource="#MinistryOfCommunicationsAndMassMedia"/>
+  </rugov:GovServicesWebSite>
+  <rugov:ProjectWebSite rdf:ID="HrMinpromrfRu">
+    <gov:managedBy rdf:resource="#MinistryOfIndustryAndTrade"/>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Портал "Кадровое развитие в промышленности и энергетике"</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Hr minpromrf ru</rdfs:label>
+  </rugov:ProjectWebSite>
+  <gov:FinancialInstitute rdf:ID="FundOfSocialInsuranceOfRussia">
+    <gov:reportsTo rdf:resource="#FederalGovernment"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Fund of social insurance of russia</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </gov:FinancialInstitute>
+  <rugov:FederalAgency rdf:ID="FederalAgencyForTechnicalRegulationAndMetrology">
+    <gov:reportsTo rdf:resource="#MinistryOfIndustryAndTrade"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal agency for technical regulation and metrology</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalAgency>
+  <rugov:FederalService rdf:ID="FederalServiceOfTariffs">
+    <gov:reportsTo rdf:resource="#FederalGovernment"/>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >307</rugov:GRBSCode>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Федеральная служба по тарифам</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalService>
+  <rugov:ProjectWebSite rdf:ID="ReservGovRu">
+    <gov:managedBy rdf:resource="#MinistryOfHealthAndSocialDevelopment"/>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Федеральный портал управленческих кадров</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Reserv gov ru</rdfs:label>
+  </rugov:ProjectWebSite>
+  <rugov:FederalAgency rdf:ID="FederalSpaceAgency">
+    <gov:reportsTo rdf:resource="#FederalGovernment"/>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.federalspace.ru</gc:url>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >259</rugov:GRBSCode>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Роскосмос</rugov:shortname>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal space agency</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalAgency>
+  <rugov:ProjectWebSite rdf:ID="TimelineMinpromrfRu">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Сайт «Развитие промышленности и энергетики России»</dc:description>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Timeline minpromrf ru</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <gov:managedBy rdf:resource="#MinistryOfIndustryAndTrade"/>
+  </rugov:ProjectWebSite>
+  <rugov:FederalService rdf:ID="FederalServiceOfFinancialMarkets">
+    <gov:reportsTo rdf:resource="#FederalGovernment"/>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ФСФР России</rugov:shortname>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal service of financial markets</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalService>
+  <rugov:FederalService rdf:ID="FederalServiceForTheOversightOfCommunicationsInformationTechnologyAndMassCommunications">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >_Information technology and mass communications</rdfs:label>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.rsoc.ru/</gc:url>
+    <gov:reportsTo rdf:resource="#MinistryOfCommunicationsAndMassMedia"/>
+  </rugov:FederalService>
+  <rugov:FederalService rdf:ID="FederalServiceForFinancialAndBudgetarySupervision">
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Росфиннадзор</rugov:shortname>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal service for financial and budgetary supervision</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalService>
+  <rugov:FederalMinistry rdf:ID="EmercomOfRussia">
+    <gov:reportsTo rdf:resource="#RussianPresident"/>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.mchs.gov.ru</gc:url>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >МЧС России</rugov:shortname>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Министерство Российской Федерации по делам гражданской обороны, чрезвычайным ситуациям и ликвидации последствий стихийных бедствий</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Emercom of russia</rdfs:label>
+  </rugov:FederalMinistry>
+  <rugov:FederalAgency rdf:ID="FederalAgencyOfSubsoilUse">
+    <rugov:okogu rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >13257</rugov:okogu>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >049</rugov:GRBSCode>
+    <gov:reportsTo rdf:resource="#MinistryOfNaturalResourcesAndEcology"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal agency of subsoil use</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalAgency>
+  <rugov:FederalAgency rdf:ID="FederalAgencyForSeaAndInlandWaterTransport">
+    <gov:reportsTo rdf:resource="#MinistryOfTransport"/>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.morflot.ru</gc:url>
+    <rugov:okogu rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >13287</rugov:okogu>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >110</rugov:GRBSCode>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Росморречфлот</rugov:shortname>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal agency for sea and inland water transport</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalAgency>
+  <rugov:FederalAgency rdf:ID="FederalAgencyForForestry">
+    <gov:reportsTo rdf:resource="#MinistryOfAgriculture"/>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal agency for forestry</rdfs:label>
+  </rugov:FederalAgency>
+  <rugov:FederalService rdf:ID="ForeignIntelligenceService">
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >184</rugov:GRBSCode>
+    <gov:reportsTo rdf:resource="#RussianPresident"/>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.svr.gov.ru</gc:url>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >СВР России</rugov:shortname>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Служба внешней разведки Российской Федерации</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalService>
+  <rugov:AuthorityWebSite rdf:ID="Ministry_of_Economic_Development">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Ministry of EconomicDevelopment web site</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></rdfs:comment>
+    <gov:managedBy rdf:resource="#MinistryOfEconomicDevelopment"/>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.economy.gov.ru</gc:url>
+  </rugov:AuthorityWebSite>
+  <rugov:ProjectWebSite rdf:ID="Zdravo2020Ru">
+    <gov:managedBy rdf:resource="#MinistryOfHealthAndSocialDevelopment"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Zdravo2020Ru</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:ProjectWebSite>
+  <rugov:Academy rdf:ID="RussianAcademyOfArts">
+    <gov:reportsTo rdf:resource="#FederalGovernment"/>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.rah.ru</gc:url>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Russian academy of arts</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:Academy>
+  <rugov:FederalService rdf:ID="FederalServiceOfAlchogolMarketRegulation">
+    <gov:reportsTo rdf:resource="#FederalGovernment"/>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Росалкогольрегулирование</rugov:shortname>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Ros alcogol reg</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Федеральная служба по регулированию алкогольного рынка</dc:description>
+  </rugov:FederalService>
+  <rugov:Academy rdf:ID="RussianAcademyOfPaintingSculptureAndArchitecture">
+    <gov:reportsTo rdf:resource="#FederalGovernment"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Russian academy of painting sculpture and architecture</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:Academy>
+  <rugov:FederalService rdf:ID="FederalServiceForIntellectualPropertyPatentsAndTrademarksRegulations">
+    <gov:reportsTo rdf:resource="#MinistryOfEducationAndScience"/>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal agency for intellectual property patents and trademarks regulations</rdfs:label>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Роспатент</rugov:shortname>
+  </rugov:FederalService>
+  <rugov:FederalAgency rdf:ID="FederalSurveillanceServiceForComplianceWithTheLegislationInMassMediaAndCulturalHeritageProtection">
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Росохранкультура</rugov:shortname>
+    <rugov:okogu rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >13233</rugov:okogu>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >087</rugov:GRBSCode>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://rosohrancult.ru/</gc:url>
+    <gov:reportsTo rdf:resource="#MinistryOfCulture"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal surveillance service for compliance with the legislation in mass media and cultural heritage protection</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalAgency>
+  <rugov:FederalService rdf:ID="FederalAirNavigationService">
+    <rugov:okogu rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >13281</rugov:okogu>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >179</rugov:GRBSCode>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal air navigation service</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalService>
+  <rugov:FederalAgency rdf:ID="FederalAgencyOfStateReserves">
+    <gov:reportsTo rdf:resource="#MinistryOfEconomicDevelopment"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal agency of state reserves</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalAgency>
+  <rugov:Foundation rdf:ID="RussianFundamentalResearchFoundation">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Российский фонд фундаментальных исследований</dc:description>
+    <rugov:okogu rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >15016</rugov:okogu>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >693</rugov:GRBSCode>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Russian fundamental research foundation</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <gov:reportsTo rdf:resource="#FederalGovernment"/>
+  </rugov:Foundation>
+  <rugov:ContractsWebSite rdf:ID="ReestrgkRoskaznaRu">
+    <gov:managedBy>
+      <rugov:FederalService rdf:ID="FederalTreasury">
+        <gov:reportsTo rdf:resource="#MinistryOfFinances"/>
+        <rugov:okogu rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >13317</rugov:okogu>
+        <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >100</rugov:GRBSCode>
+        <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Федеральное казначейство</dc:description>
+        <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.roskazna.ru</gc:url>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Казначейство России</rdfs:label>
+        <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Казначейство России</rugov:shortname>
+      </rugov:FederalService>
+    </gov:managedBy>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://reestrgk.roskazna.ru/</gc:url>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Реестр государственных контрактов заключенных по итогам размещения заказов</dc:description>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Реестр государственных контрактов заключенных по итогам размещения заказов</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdf:type rdf:resource="#ProcurementWebSite"/>
+  </rugov:ContractsWebSite>
+  <rugov:ProjectWebSite rdf:ID="EcokonkursRu">
+    <gov:managedBy rdf:resource="#MinistryOfNaturalResourcesAndEcology"/>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Сайт ежегодной премии Министерства природных ресурсов Российской Федерации «Лучший экологический проект года» </dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Ecokonkurs ru</rdfs:label>
+  </rugov:ProjectWebSite>
+  <gov:FinancialInstitute rdf:ID="FederalMedicalInsuranceFund">
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ФОМС</rugov:shortname>
+    <gov:reportsTo rdf:resource="#FederalGovernment"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal medical insurance fund</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </gov:FinancialInstitute>
+  <rugov:FederalService rdf:ID="FederalServiceOfFinancialMonitoring">
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.fedsfm.ru</gc:url>
+    <gov:reportsTo rdf:resource="#FederalGovernment"/>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Росфинмониторинг</rugov:shortname>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal service of financial monitoring</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalService>
+  <rugov:ProjectWebSite rdf:ID="GSRPA">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Государственная система распространения правовых актов</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://pravo.fso.gov.ru</gc:url>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Государственная система распространения правовых актов</rdfs:label>
+    <gov:managedBy>
+      <rugov:FederalService rdf:ID="FederalProtectiveService">
+        <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ФСО России</rugov:shortname>
+        <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ru</dc:language>
+        <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Федеральная служба охраны</dc:description>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Федеральная служба охраны</rdfs:label>
+        <rugov:okogu rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >13196</rugov:okogu>
+        <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >202</rugov:GRBSCode>
+        <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.fso.gov.ru</gc:url>
+        <gov:reportsTo rdf:resource="#RussianPresident"/>
+      </rugov:FederalService>
+    </gov:managedBy>
+  </rugov:ProjectWebSite>
+  <gov:JudicialBranch rdf:ID="JudicialDepartmentAtTheSupremeCourt">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Judicial department at the supreme court</rdfs:label>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.cdep.ru</gc:url>
+    <gov:reportsTo>
+      <gov:Court rdf:ID="SupremeCourt">
+        <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        ></dc:description>
+        <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ru</dc:language>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Supreme court</rdfs:label>
+        <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.supcourt.ru</gc:url>
+      </gov:Court>
+    </gov:reportsTo>
+  </gov:JudicialBranch>
+  <rugov:FederalAgency rdf:ID="FederalAgencyOfManagementOfFederalProperty">
+    <gov:reportsTo rdf:resource="#MinistryOfEconomicDevelopment"/>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.rosim.ru</gc:url>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal agency of management of federal property</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalAgency>
+  <rugov:Foundation rdf:ID="RussianHumanitarianScientificFoundation">
+    <gov:reportsTo rdf:resource="#FederalGovernment"/>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.rfh.ru</gc:url>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Российский гуманитарный научный фонд</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Russian humanitarian scientific foundation</rdfs:label>
+  </rugov:Foundation>
+  <gov:Court rdf:ID="SupremeCommercialCourt">
+    <rugov:okogu rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >14003</rugov:okogu>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >434</rugov:GRBSCode>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ВАС РФ</rugov:shortname>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.arbitr.ru</gc:url>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Высший арбитражный суд Российской Федерации</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </gov:Court>
+  <rugov:FederalAgency rdf:ID="FederalRoadAgency">
+    <gov:reportsTo rdf:resource="#MinistryOfTransport"/>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Росавтодор</rugov:shortname>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal road agency</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalAgency>
+  <rugov:FederalAgency rdf:ID="FederalAgencyForPressAndMassCommunications">
+    <gov:reportsTo rdf:resource="#MinistryOfCommunicationsAndMassMedia"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal agency for press and mass communications</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalAgency>
+  <rugov:FederalAgency rdf:ID="FederalAgencyScienceAndInnovation">
+    <gov:reportsTo rdf:resource="#MinistryOfEducationAndScience"/>
+    <rugov:okogu rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >13240</rugov:okogu>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >244</rugov:GRBSCode>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.fasi.gov.ru/</gc:url>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Федеральное агентство по науке и инновациям</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal agency science and innovation</rdfs:label>
+  </rugov:FederalAgency>
+  <rugov:FederalService rdf:ID="FederalSupervisionServiceForHealthсareAndSocialDevelopment">
+    <gov:reportsTo rdf:resource="#MinistryOfHealthAndSocialDevelopment"/>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >060</rugov:GRBSCode>
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.roszdravnadzor.ru</gc:url>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Росздравнадзор</rugov:shortname>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal supervision service for healthсare and social development</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rugov:FederalService>
+  <rugov:FederalAgency rdf:ID="FederalFishingAgency">
+    <gc:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://www.fishcom.ru/</gc:url>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Федеральное агентство по рыболовству</rdfs:label>
+    <rugov:shortname rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Росрыболовство</rugov:shortname>
+    <rugov:GRBSCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >076</rugov:GRBSCode>
+    <rugov:okogu rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >13392</rugov:okogu>
+    <gov:reportsTo rdf:resource="#FederalGovernment"/>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Федеральное агентство по рыболовству</dc:description>
+  </rugov:FederalAgency>
+  <rdf:Description rdf:about="http://www.oegov.org/core/owl/gov#Court">
+    <rdfs:subClassOf rdf:resource="http://www.oegov.org/core/owl/gov#JudicialBranch"/>
+  </rdf:Description>
+</rdf:RDF>
+
+<!-- Created with TopBraid -->

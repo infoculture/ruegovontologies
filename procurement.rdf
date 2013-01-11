@@ -1,0 +1,404 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:pccz="http://purl.org/procurement/czech#"
+    xmlns:gr="http://purl.org/goodrelations/v1#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:dc="http://purl.org/dc/terms/"
+    xmlns:pc="http://purl.org/procurement#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:vann="http://purl.org/vocab/vann/"
+    xmlns:vcard="http://www.w3.org/2006/vcard/ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://opendata.cz/vocabulary/procurement.rdf">
+  <owl:Ontology rdf:about="http://purl.org/procurement#">
+    <dc:rights rdf:resource="http://creativecommons.org/licenses/by/3.0/cz/"/>
+    <dc:creator rdf:resource="http://keg.vse.cz/resource/person/josef-petrak"/>
+    <dc:creator>
+      <foaf:Person rdf:about="http://purl.org/klimek#me">
+        <foaf:mbox rdf:resource="mailto:klimek.mff@gmail.com"/>
+        <foaf:name>Jakub Klímek</foaf:name>
+      </foaf:Person>
+    </dc:creator>
+    <dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+    >2011-08-09</dc:modified>
+    <dc:creator rdf:resource="http://keg.vse.cz/resource/person/jindrich-mynarz"/>
+    <dc:creator>
+      <foaf:Person rdf:about="http://www.ksi.mff.cuni.cz/~necasky">
+        <foaf:mbox rdf:resource="mailto:martinnec@gmail.com"/>
+        <foaf:name>Martin Nečaský</foaf:name>
+      </foaf:Person>
+    </dc:creator>
+    <dc:title xml:lang="cs">Ontologie pro veřejné zakázky</dc:title>
+    <vann:preferredNamespacePrefix>pc</vann:preferredNamespacePrefix>
+    <vann:preferredNamespaceUri>http://purl.org/procurement#</vann:preferredNamespaceUri>
+    <dc:title xml:lang="en">Public Contracts Ontology</dc:title>
+    <dc:description xml:lang="cs">Ontologie pro veřejné zakázky poskytuje vyjadřovací prostředky pro popis zakázek zadávaných institucemi veřejné správy.</dc:description>
+    <rdfs:seeAlso rdf:resource="http://prefix.cc/pc"/>
+    <dc:creator>
+      <foaf:Person rdf:about="http://www.facebook.com/nohis">
+        <foaf:mbox rdf:resource="mailto:nohejl.pavel@gmail.com"/>
+        <foaf:name>Pavel Nohejl</foaf:name>
+      </foaf:Person>
+    </dc:creator>
+    <rdfs:seeAlso rdf:resource="http://opendata.cz/vocabulary/procurement#"/>
+  </owl:Ontology>
+  <rdfs:Class rdf:about="http://purl.org/procurement#Tender">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:label xml:lang="en">Tender</rdfs:label>
+    <rdfs:label xml:lang="cs">Nabídka</rdfs:label>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://purl.org/procurement#Contract">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:label xml:lang="en">Public contract</rdfs:label>
+    <rdfs:label xml:lang="cs">Veřejná zakázka</rdfs:label>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://purl.org/procurement#AwardCriteria">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:label xml:lang="en">Contract award criteria</rdfs:label>
+    <rdfs:label xml:lang="cs">Kritérium pro udělení zakázky</rdfs:label>
+  </rdfs:Class>
+  <rdf:Property rdf:about="http://purl.org/procurement#supplier">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:range rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <rdfs:domain rdf:resource="http://purl.org/procurement#Tender"/>
+    <rdfs:label xml:lang="en">Tender supplier</rdfs:label>
+    <rdfs:label xml:lang="cs">Dodavatel, který podal nabídku</rdfs:label>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://purl.org/procurement#awardCriteriaType">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:domain rdf:resource="http://purl.org/procurement#Contract"/>
+    <rdfs:label xml:lang="en">Type of critera for contract award.</rdfs:label>
+    <rdfs:label xml:lang="cs">Typ kritéria pro zadání zakázky.</rdfs:label>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://purl.org/procurement#onSchedule">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:domain rdf:resource="http://purl.org/procurement#Contract"/>
+    <rdfs:label xml:lang="en">Contract schedule fulfilled</rdfs:label>
+    <rdfs:label xml:lang="cs">Časový plán zakázky dodržen</rdfs:label>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://purl.org/procurement#mainContact">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2006/vcard/ns#VCard"/>
+    <rdfs:domain rdf:resource="http://purl.org/procurement#Contract"/>
+    <rdfs:label xml:lang="en">Contract main contact</rdfs:label>
+    <rdfs:label xml:lang="cs">Hlavní kontakt pro zakázku</rdfs:label>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://purl.org/procurement#criteria">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:domain rdf:resource="http://purl.org/procurement#AwardCriteria"/>
+    <rdfs:label xml:lang="en">Contract award criteria specification</rdfs:label>
+    <rdfs:label xml:lang="cs">Specifikace kritéria pro výběr dodavatele zakázky</rdfs:label>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://purl.org/procurement#awardCriteria">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:range rdf:resource="http://purl.org/procurement#AwardCriteria"/>
+    <rdfs:domain rdf:resource="http://purl.org/procurement#Contract"/>
+    <rdfs:label xml:lang="en">Critera for contract award.</rdfs:label>
+    <rdfs:label xml:lang="cs">Kritérium pro zadání zakázky.</rdfs:label>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://purl.org/procurement#kind">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:domain rdf:resource="http://purl.org/procurement#Contract"/>
+    <rdfs:label xml:lang="en">Type of contract</rdfs:label>
+    <rdfs:label xml:lang="cs">Druh zakázky</rdfs:label>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://purl.org/procurement#endDate">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/date"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:domain rdf:resource="http://purl.org/procurement#Contract"/>
+    <rdfs:label xml:lang="en">End date of contract</rdfs:label>
+    <rdfs:label xml:lang="cs">Datum konce realizace zakázky</rdfs:label>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://purl.org/procurement#contactPerson">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <rdfs:domain rdf:resource="http://purl.org/procurement#Contract"/>
+    <rdfs:label xml:lang="en">Contract contact person</rdfs:label>
+    <rdfs:label xml:lang="cs">Kontaktní osoba pro zakázku</rdfs:label>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://purl.org/procurement#durationMonths">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:domain rdf:resource="http://purl.org/procurement#Contract"/>
+    <rdfs:label xml:lang="en">Exact duration of contract in months</rdfs:label>
+    <rdfs:label xml:lang="cs">Doba trvání zakázky v měsících</rdfs:label>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://purl.org/procurement#tender">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:range rdf:resource="http://purl.org/procurement#Tender"/>
+    <rdfs:domain rdf:resource="http://purl.org/procurement#Contract"/>
+    <rdfs:label xml:lang="en">Tender</rdfs:label>
+    <rdfs:label xml:lang="cs">Nabídka</rdfs:label>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://purl.org/procurement#buyerProfile">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Resource"/>
+    <rdfs:domain rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <rdfs:label xml:lang="en">Buyers's profile website</rdfs:label>
+    <rdfs:label xml:lang="cs">Profilová stránka kupujícího</rdfs:label>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://purl.org/procurement#numberOfTenders">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/issued"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:domain rdf:resource="http://purl.org/procurement#Contract"/>
+    <rdfs:label xml:lang="en">Number of tenders received</rdfs:label>
+    <rdfs:label xml:lang="cs">Počet obdržených nabídek</rdfs:label>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://purl.org/procurement#tenderDeadline">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:domain rdf:resource="http://purl.org/procurement#Contract"/>
+    <rdfs:label xml:lang="en">Time-limit for receipt of tenders or requests to participate</rdfs:label>
+    <rdfs:label xml:lang="cs">Lhůta pro doručení nabídek nebo přijetí žádostí o účast</rdfs:label>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://purl.org/procurement#criteriaWeight">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:domain rdf:resource="http://purl.org/procurement#AwardCriteria"/>
+    <rdfs:label xml:lang="en">Contract award criteria weight</rdfs:label>
+    <rdfs:label xml:lang="cs">Váha kritéria pro výběr dodavatele zakázky</rdfs:label>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://purl.org/procurement#object">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:domain rdf:resource="http://purl.org/procurement#Contract"/>
+    <rdfs:label xml:lang="en">Object of contract</rdfs:label>
+    <rdfs:label xml:lang="cs">Předmět zakázky</rdfs:label>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://purl.org/procurement#quality">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:domain rdf:resource="http://purl.org/procurement#Contract"/>
+    <rdfs:label xml:lang="en">Quality of public contract realization</rdfs:label>
+    <rdfs:label xml:lang="cs">Kvalita realizace zakázky</rdfs:label>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://purl.org/procurement#attachment">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Resource"/>
+    <rdfs:domain rdf:resource="http://purl.org/procurement#Contract"/>
+    <rdfs:label xml:lang="en">Contract attachment</rdfs:label>
+    <rdfs:label xml:lang="cs">Příloha k zakázce</rdfs:label>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://purl.org/procurement#publicationDate">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/issued"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:domain rdf:resource="http://purl.org/procurement#Contract"/>
+    <rdfs:label xml:lang="en">Contract publication date</rdfs:label>
+    <rdfs:label xml:lang="cs">Datum zveřejnění zakázky</rdfs:label>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://purl.org/procurement#lot">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:comment xml:lang="en">Contract lot</rdfs:comment>
+    <rdfs:comment xml:lang="cs">Část zakázky</rdfs:comment>
+    <rdfs:label xml:lang="en">Contract lot</rdfs:label>
+    <rdfs:label xml:lang="cs">Část zakázky</rdfs:label>
+    <rdfs:range rdf:resource="http://purl.org/procurement#Contract"/>
+    <rdfs:domain rdf:resource="http://purl.org/procurement#Contract"/>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://purl.org/procurement#startDate">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/date"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:domain rdf:resource="http://purl.org/procurement#Contract"/>
+    <rdfs:label xml:lang="en">Start date of contract</rdfs:label>
+    <rdfs:label xml:lang="cs">Datum začátku realizace zakázky</rdfs:label>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://purl.org/procurement#awardDate">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/issued"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:domain rdf:resource="http://purl.org/procurement#Contract"/>
+    <rdfs:label xml:lang="en">Date of contract award</rdfs:label>
+    <rdfs:label xml:lang="cs">Datum zadání zakázky</rdfs:label>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://purl.org/procurement#referenceNumber">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:domain rdf:resource="http://purl.org/procurement#Contract"/>
+    <rdfs:label xml:lang="en">File reference number</rdfs:label>
+    <rdfs:label xml:lang="cs">Spisové číslo zakázky</rdfs:label>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://purl.org/procurement#procedureType">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:domain rdf:resource="http://purl.org/procurement#Contract"/>
+    <rdfs:label xml:lang="en">Type of procedure of contract</rdfs:label>
+    <rdfs:label xml:lang="cs">Druh řízení zakázky</rdfs:label>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://purl.org/procurement#durationDays">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:domain rdf:resource="http://purl.org/procurement#Contract"/>
+    <rdfs:label xml:lang="en">Exact duration of contract in days</rdfs:label>
+    <rdfs:label xml:lang="cs">Doba trvání zakázky ve dnech</rdfs:label>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://purl.org/procurement#price">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:range rdf:resource="http://purl.org/goodrelations/v1#PriceSpecification"/>
+    <rdfs:label xml:lang="en">Price</rdfs:label>
+    <rdfs:label xml:lang="cs">Cena</rdfs:label>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://purl.org/procurement#contractingAuthority">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:range rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    <rdfs:domain rdf:resource="http://purl.org/procurement#Contract"/>
+    <rdfs:label xml:lang="en">Contracting authority</rdfs:label>
+    <rdfs:label xml:lang="cs">Zadavatel</rdfs:label>
+  </rdf:Property>
+  <foaf:Person rdf:about="http://keg.vse.cz/person/jindrich-mynarz">
+    <foaf:name>Jindřich Mynarz</foaf:name>
+  </foaf:Person>
+  <rdf:Description rdf:about="http://purl.org/procurement#actualPrice">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:domain rdf:resource="http://purl.org/procurement#Contract"/>
+    <rdfs:label xml:lang="en">Actual price after contract realization</rdfs:label>
+    <rdfs:label xml:lang="cs">Skutečná cena po realizaci zakázky</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/procurement#price"/>
+  </rdf:Description>
+  <skos:Concept rdf:about="http://purl.org/procurement#Services">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:label xml:lang="en">Services</rdfs:label>
+    <rdfs:label xml:lang="cs">Služby</rdfs:label>
+    <skos:inScheme>
+      <skos:ConceptScheme rdf:about="http://purl.org/procurement#KindScheme"/>
+    </skos:inScheme>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/procurement#Supplies">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:label xml:lang="en">Supplies</rdfs:label>
+    <rdfs:label xml:lang="cs">Dodávky</rdfs:label>
+    <skos:inScheme rdf:resource="http://purl.org/procurement#KindScheme"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/procurement#Open">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:label xml:lang="en">Open</rdfs:label>
+    <rdfs:label xml:lang="cs">Otevřené</rdfs:label>
+    <skos:inScheme>
+      <skos:ConceptScheme rdf:about="http://purl.org/procurement#ProcedureTypeScheme"/>
+    </skos:inScheme>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/procurement#CompetitiveDialogue">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:label xml:lang="en">Competition dialogue</rdfs:label>
+    <rdfs:label xml:lang="cs">Soutěžní dialog</rdfs:label>
+    <skos:inScheme rdf:resource="http://purl.org/procurement#ProcedureTypeScheme"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/procurement#Negotiated">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:label xml:lang="en">Negotiated</rdfs:label>
+    <rdfs:label xml:lang="cs">Jednací</rdfs:label>
+    <skos:inScheme rdf:resource="http://purl.org/procurement#ProcedureTypeScheme"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/procurement#Works">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:label xml:lang="en">Works</rdfs:label>
+    <rdfs:label xml:lang="cs">Stavební práce</rdfs:label>
+    <skos:inScheme rdf:resource="http://purl.org/procurement#KindScheme"/>
+  </skos:Concept>
+  <rdf:Description rdf:about="http://purl.org/procurement#subsidy">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:domain rdf:resource="http://purl.org/procurement#Contract"/>
+    <rdfs:label xml:lang="en">Subsidy supplemented for contract</rdfs:label>
+    <rdfs:label xml:lang="cs">Dotace použitá pro zakázku</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/procurement#price"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/procurement#awardedTender">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:label xml:lang="en">Awarded tender</rdfs:label>
+    <rdfs:label xml:lang="cs">Vybraná nabídka</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/procurement#tender"/>
+  </rdf:Description>
+  <skos:Concept rdf:about="http://purl.org/procurement#AcceleratedNegotiated">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:label xml:lang="en">Accelerated negotiated</rdfs:label>
+    <rdfs:label xml:lang="cs">Urychlené jednací</rdfs:label>
+    <skos:inScheme rdf:resource="http://purl.org/procurement#ProcedureTypeScheme"/>
+  </skos:Concept>
+  <rdf:Description rdf:about="http://purl.org/procurement#additionalObject">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:label xml:lang="en">Additional object of contract</rdfs:label>
+    <rdfs:label xml:lang="cs">Další předmět zakázky</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/procurement#object"/>
+  </rdf:Description>
+  <skos:Concept rdf:about="http://purl.org/procurement#Restricted">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:label xml:lang="en">Restricted</rdfs:label>
+    <rdfs:label xml:lang="cs">Užší</rdfs:label>
+    <skos:inScheme rdf:resource="http://purl.org/procurement#ProcedureTypeScheme"/>
+  </skos:Concept>
+  <rdf:Description rdf:about="http://purl.org/procurement#estimatedPriceLower">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:domain rdf:resource="http://purl.org/procurement#Contract"/>
+    <rdfs:label xml:lang="en">Lower range of estimated price</rdfs:label>
+    <rdfs:label xml:lang="cs">Počáteční rozsah odhadované ceny</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/procurement#price"/>
+  </rdf:Description>
+  <foaf:Person rdf:about="http://keg.vse.cz/person/josef-petrak">
+    <foaf:mbox rdf:resource="mailto:me@jspetrak.name"/>
+    <foaf:name>Josef Petrák</foaf:name>
+  </foaf:Person>
+  <rdf:Description rdf:about="http://purl.org/procurement#offeredPrice">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:domain rdf:resource="http://purl.org/procurement#Tender"/>
+    <rdfs:label xml:lang="en">Offered price in tender</rdfs:label>
+    <rdfs:label xml:lang="cs">Nabídnutá cena v nabídce</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/procurement#price"/>
+  </rdf:Description>
+  <skos:Concept rdf:about="http://purl.org/procurement#AcceleratedRestricted">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:label xml:lang="en">Accelerated restricted</rdfs:label>
+    <rdfs:label xml:lang="cs">Urychlené užší</rdfs:label>
+    <skos:inScheme rdf:resource="http://purl.org/procurement#ProcedureTypeScheme"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/procurement#LowestPrice">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:label xml:lang="en">Lowest price</rdfs:label>
+    <rdfs:label xml:lang="cs">Nejnižší nabídková cena</rdfs:label>
+    <skos:inScheme>
+      <skos:ConceptScheme rdf:about="http://purl.org/procurement#AwardCriteriaTypeScheme"/>
+    </skos:inScheme>
+  </skos:Concept>
+  <rdf:Description rdf:about="http://purl.org/procurement#estimatedPrice">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:domain rdf:resource="http://purl.org/procurement#Contract"/>
+    <rdfs:label xml:lang="en">Exact estimated price</rdfs:label>
+    <rdfs:label xml:lang="cs">Přesná odhadovaná cena cena</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/procurement#price"/>
+  </rdf:Description>
+  <skos:Concept rdf:about="http://purl.org/procurement#MostEconomicallyAdvantageousTender">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:label xml:lang="en">The most economically advantageous tender</rdfs:label>
+    <rdfs:label xml:lang="cs">Ekonomicky nejvýhodnější nabídka</rdfs:label>
+    <skos:inScheme rdf:resource="http://purl.org/procurement#AwardCriteriaTypeScheme"/>
+  </skos:Concept>
+  <rdf:Description rdf:about="http://purl.org/procurement#mainObject">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:label xml:lang="en">Main object of contract</rdfs:label>
+    <rdfs:label xml:lang="cs">Hlavní předmět zakázky</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/procurement#object"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/procurement#estimatedPriceUpper">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement#"/>
+    <rdfs:domain rdf:resource="http://purl.org/procurement#Contract"/>
+    <rdfs:label xml:lang="en">Upper range of estimated price</rdfs:label>
+    <rdfs:label xml:lang="cs">Koncový rozsah odhadované ceny</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/procurement#price"/>
+  </rdf:Description>
+  <skos:Concept rdf:about="http://purl.org/procurement#SimpleUnderLimit">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement/czech#"/>
+    <rdfs:label xml:lang="en">Simple under limit</rdfs:label>
+    <rdfs:label xml:lang="cs">Zjednodušené podlimitní</rdfs:label>
+  </skos:Concept>
+</rdf:RDF>
+
+<!-- Created with TopBraid -->

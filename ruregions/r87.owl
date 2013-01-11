@@ -1,0 +1,272 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:regions="http://schema.opengovdata.ru/core/regions.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns="http://schema.opengovdata.ru/v01/reg/r87#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://schema.opengovdata.ru/v01/reg/r87">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://schema.opengovdata.ru/core/regions.owl"/>
+    <owl:imports rdf:resource="http://purl.org/dc/dcam/"/>
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Created with TopBraid Composer</owl:versionInfo>
+    <owl:imports rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    <owl:imports rdf:resource="http://purl.org/dc/terms/"/>
+    <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  </owl:Ontology>
+  <owl:ObjectProperty rdf:about="http://schema.opengovdata.ru/core/regions.owl#isMemberOfMunicipal">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >is member of municipal formation</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >is member of municipal formation</rdfs:label>
+    <rdfs:range>
+      <rdf:Description rdf:about="http://schema.opengovdata.ru/core/regions.owl#municipal_formation">
+        <rdfs:subClassOf>
+          <owl:Restriction>
+            <owl:onClass rdf:resource="http://schema.opengovdata.ru/core/regions.owl#municipal_formation"/>
+            <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+            >1</owl:qualifiedCardinality>
+            <owl:onProperty rdf:resource="http://schema.opengovdata.ru/core/regions.owl#isMemberOfMunicipal"/>
+          </owl:Restriction>
+        </rdfs:subClassOf>
+      </rdf:Description>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="http://schema.opengovdata.ru/core/regions.owl#municipal_formation"/>
+  </owl:ObjectProperty>
+  <regions:municipal_district rdf:ID="Chaunsky_municipal_district">
+    <regions:website rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >http://www.chukotka.org/ru/authority/municipal_adm/chaunsky_rn/</regions:website>
+    <regions:codeOKTMO rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >77630000</regions:codeOKTMO>
+    <regions:isMemberOf rdf:resource="http://schema.opengovdata.ru/core/regions.owl#Chukotka_Autonomous_Okrug"/>
+    <regions:nameEN rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Chaunsky municipal district</regions:nameEN>
+    <regions:nameRU rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Чаунский муниципальный район</regions:nameRU>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Chaunsky_municipal_district</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </regions:municipal_district>
+  <regions:rural_settlement rdf:ID="Lorino">
+    <regions:codeOKTMO rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >77633423</regions:codeOKTMO>
+    <regions:isMemberOf rdf:resource="http://schema.opengovdata.ru/core/regions.owl#Chukotka_Autonomous_Okrug"/>
+    <regions:isMemberOfMunicipal>
+      <regions:municipal_district rdf:ID="Chukotsky_municipal_district">
+        <regions:website rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >http://www.chukotka.org/ru/authority/municipal_adm/chukotsky_rn/</regions:website>
+        <regions:isMemberOf rdf:resource="http://schema.opengovdata.ru/core/regions.owl#Chukotka_Autonomous_Okrug"/>
+        <regions:nameEN rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Chukotsky municipal district</regions:nameEN>
+        <regions:nameRU rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Чукотский муниципальный район</regions:nameRU>
+        <regions:codeOKTMO rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >77633000</regions:codeOKTMO>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Chukotsky_municipal_district</rdfs:label>
+        <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ru</dc:language>
+        <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        ></dc:description>
+      </regions:municipal_district>
+    </regions:isMemberOfMunicipal>
+    <regions:nameRU rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Лорино</regions:nameRU>
+    <regions:nameEN rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Lorino</regions:nameEN>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Lorino</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </regions:rural_settlement>
+  <regions:municipal_district rdf:ID="Iultinsky_municipal_district">
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <regions:nameRU rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Иультинский муниципальный район</regions:nameRU>
+    <regions:nameEN rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Iultinsky municipal district</regions:nameEN>
+    <regions:website rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >http://www.chukotka.org/ru/iultinsky_rn/</regions:website>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <regions:codeOKTMO rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >77615000</regions:codeOKTMO>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Iultinsky_municipal_district</rdfs:label>
+    <regions:codeOKATO rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >77215551000</regions:codeOKATO>
+    <regions:isMemberOf rdf:resource="http://schema.opengovdata.ru/core/regions.owl#Chukotka_Autonomous_Okrug"/>
+  </regions:municipal_district>
+  <regions:rural_settlement rdf:ID="Inchoun">
+    <regions:isMemberOf rdf:resource="http://schema.opengovdata.ru/core/regions.owl#Chukotka_Autonomous_Okrug"/>
+    <regions:codeOKTMO rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >77633410</regions:codeOKTMO>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Inchoun</rdfs:label>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <regions:codeOKATO rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >77233000002</regions:codeOKATO>
+    <regions:nameEN rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Inchoun</regions:nameEN>
+    <regions:nameRU rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Инчоун</regions:nameRU>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <regions:isMemberOfMunicipal rdf:resource="#Chukotsky_municipal_district"/>
+  </regions:rural_settlement>
+  <regions:municipal_district rdf:ID="Anadyr_municipal_district">
+    <regions:codeOKATO rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >77203559000</regions:codeOKATO>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Anadyr_municipal_district</rdfs:label>
+    <regions:nameRU rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Анадырский муниципальный район</regions:nameRU>
+    <regions:website rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >http://www.chukotka.org/ru/authority/municipal_adm/anadyrskiy_rn/</regions:website>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <regions:isMemberOf rdf:resource="http://schema.opengovdata.ru/core/regions.owl#Chukotka_Autonomous_Okrug"/>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <regions:codeOKTMO rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >77603000</regions:codeOKTMO>
+    <regions:nameEN rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Anadyr municipal district</regions:nameEN>
+  </regions:municipal_district>
+  <regions:rural_settlement rdf:ID="Neshkan">
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <regions:codeOKTMO rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >77633430</regions:codeOKTMO>
+    <regions:nameRU rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Нешкан</regions:nameRU>
+    <regions:nameEN rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Neshkan</regions:nameEN>
+    <regions:isMemberOfMunicipal rdf:resource="#Chukotsky_municipal_district"/>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Neshkan</rdfs:label>
+    <regions:codeOKATO rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >77233000004</regions:codeOKATO>
+    <regions:isMemberOf rdf:resource="http://schema.opengovdata.ru/core/regions.owl#Chukotka_Autonomous_Okrug"/>
+  </regions:rural_settlement>
+  <regions:municipal_district rdf:ID="Providensky_municipal_district">
+    <regions:website rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >http://www.chukotka.org/ru/providensky_rn/</regions:website>
+    <regions:codeOKTMO rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >77620000</regions:codeOKTMO>
+    <regions:nameEN rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Providensky municipal district</regions:nameEN>
+    <regions:nameRU rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Провиденский муниципальный район</regions:nameRU>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Providensky_municipal_district</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </regions:municipal_district>
+  <regions:municipal_district rdf:ID="Bilibinsky_municipal_district">
+    <regions:website rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >http://www.chukotka.org/ru/authority/municipal_adm/bilibinsky_rn/</regions:website>
+    <regions:isMemberOf rdf:resource="http://schema.opengovdata.ru/core/regions.owl#Chukotka_Autonomous_Okrug"/>
+    <regions:nameRU rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Билибинский муниципальный район</regions:nameRU>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <regions:codeOKATO rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >77209000008</regions:codeOKATO>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Bilibinsky_municipal_district</rdfs:label>
+    <regions:nameEN rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Bilibinsky municipal district</regions:nameEN>
+    <regions:codeOKTMO rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >77609000</regions:codeOKTMO>
+  </regions:municipal_district>
+  <regions:rural_settlement rdf:ID="Uellen">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <regions:codeOKTMO rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >77633440</regions:codeOKTMO>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Uellen</rdfs:label>
+    <regions:isMemberOf rdf:resource="http://schema.opengovdata.ru/core/regions.owl#Chukotka_Autonomous_Okrug"/>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <regions:codeOKATO rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >77233000005</regions:codeOKATO>
+    <regions:nameEN rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Uellen</regions:nameEN>
+    <regions:nameRU rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Уээллен</regions:nameRU>
+    <regions:isMemberOfMunicipal rdf:resource="#Chukotsky_municipal_district"/>
+  </regions:rural_settlement>
+  <regions:urban_okrug rdf:ID="Anadyr">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <regions:nameRU rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Анадырь</regions:nameRU>
+    <regions:codeOKATO rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >77401000000</regions:codeOKATO>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Anadyr</rdfs:label>
+    <regions:isMemberOf rdf:resource="http://schema.opengovdata.ru/core/regions.owl#Chukotka_Autonomous_Okrug"/>
+    <regions:website rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >http://www.adm.anadyr.ru</regions:website>
+    <regions:nameEN rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Anadyr</regions:nameEN>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <regions:codeOKTMO rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >77701000</regions:codeOKTMO>
+  </regions:urban_okrug>
+  <regions:rural_settlement rdf:ID="Enurmino">
+    <regions:isMemberOfMunicipal rdf:resource="#Chukotsky_municipal_district"/>
+    <regions:codeOKATO rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >77233000006</regions:codeOKATO>
+    <regions:nameRU rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Энурмино</regions:nameRU>
+    <regions:codeOKTMO rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >77633445</regions:codeOKTMO>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <regions:isMemberOf rdf:resource="http://schema.opengovdata.ru/core/regions.owl#Chukotka_Autonomous_Okrug"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Enurmino</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+  </regions:rural_settlement>
+  <regions:rural_settlement rdf:ID="Lavrentiya">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Lavrentiya</rdfs:label>
+    <regions:isMemberOf rdf:resource="http://schema.opengovdata.ru/core/regions.owl#Chukotka_Autonomous_Okrug"/>
+    <regions:nameEN rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Lavrentiya</regions:nameEN>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <regions:codeOKATO rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >77233000001</regions:codeOKATO>
+    <regions:isMemberOfMunicipal rdf:resource="#Chukotsky_municipal_district"/>
+    <regions:codeOKTMO rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >77633420</regions:codeOKTMO>
+    <regions:nameRU rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Лаврентия</regions:nameRU>
+  </regions:rural_settlement>
+</rdf:RDF>
+
+<!-- Created with TopBraid -->

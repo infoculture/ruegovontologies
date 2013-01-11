@@ -1,0 +1,1315 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:regions="http://schema.opengovdata.ru/core/regions.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns="http://schema.opengovdata.ru/core/rugovcore.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://schema.opengovdata.ru/core/rugovcore.owl">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://schema.opengovdata.ru/core/regions.owl"/>
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Created with TopBraid Composer</owl:versionInfo>
+  </owl:Ontology>
+  <owl:Class rdf:ID="FederalMinistry">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal ministry</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Central"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="ConstitutionalTerm">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <rdf:Property rdf:ID="isInConstitutionArticle"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Понятие прописанное в конституции страны</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Constitutional term</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="LegalTerm"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="GovLevel">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Levels of the government bodies</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Gov level</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Entity"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="FinancialControl">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Financial control</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="GovBody"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="SupremeCourt">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Supreme court</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Court"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Central">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Центральный орган власти</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Central</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#GovBody"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Bank">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Банк</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Bank</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#GovBody"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="ProsecutionOffice">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Прокуратура</dc:description>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#GovBody"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ProsecutionOffice</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+  </owl:Class>
+  <owl:Class rdf:ID="FederalGovernmentInsitution">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal government insitution</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="GovernmentInsitution"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="UnitaryEnterprise">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Government Unitary Enterprise</dc:description>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Structure"/>
+    </rdfs:subClassOf>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Unitary_Enterprise</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Constitution">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Конституция</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Constitution</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="LegalDocument"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="GovernmentFund">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Government fund</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#GovBody"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Comission">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Государственная комиссия</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Comission</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#GovBody"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="LegalDocumentArticle">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <rdf:Property rdf:ID="isArticleOf"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <rdf:Property rdf:ID="articleNumber"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <rdf:Property rdf:ID="text"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Статья нормативно-правового документа</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Legal document article</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="LegalEntity"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Corporation">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Государственная корпорация</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Corporation</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#GovBody"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="FedGovernment">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Fed government</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <rdfs:subClassOf rdf:resource="#Central"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Resolution">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Постановление</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Resolution</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#LegalDocument"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="FederalHealthInstitution">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Федеральное учреждение здравоохранения</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal health institution</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#GovernmentInsitution"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Entity">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >All base government entities</dc:description>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:maxCardinality>
+        <owl:onProperty rdf:resource="http://schema.opengovdata.ru/core/regions.owl#nameEN"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Entity</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:maxCardinality>
+        <owl:onProperty rdf:resource="http://schema.opengovdata.ru/core/regions.owl#nameRU"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:about="#LegalTerm">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Юридическое понятие</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Legal term</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#LegalEntity"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="CommercialCourt">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Court"/>
+    </rdfs:subClassOf>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Commercial_Court</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="GovBranch">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Ветвь государственной власти</dc:description>
+    <rdfs:subClassOf rdf:resource="#Entity"/>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Political power of the government</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Structure">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Государственная структура</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Structure</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#GovBody"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="ScienceAcademy">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Science academy</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#GovBody"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#LegalEntity">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Legal entity</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:ID="FederalStateEnterprise">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal state enterprise</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="StateEnterprise"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="FederalAgency">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal agency</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <rdfs:subClassOf rdf:resource="#Central"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ConstitutionArticle">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Статья конституции</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Constitution article</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#LegalDocumentArticle"/>
+  </owl:Class>
+  <owl:Class rdf:ID="FinancialFund">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Финансовый фонд</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Financial fund</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#GovBody"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="FederalConsitutionLaw">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Федеральный конституционный закон</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal consitution law</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#LegalDocument"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="President">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >President</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <rdfs:subClassOf rdf:resource="#Central"/>
+  </owl:Class>
+  <owl:Class rdf:about="#GovernmentInsitution">
+    <rdfs:subClassOf rdf:resource="#Structure"/>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Government_Insitution</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Local">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Local</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#GovBody"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Codex">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Кодекс</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Codex</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#LegalDocument"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Decree">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Указ</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Decree</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#LegalDocument"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="FederalUnitaryEnterprise">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal unitary enterprise</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <rdfs:subClassOf rdf:resource="#UnitaryEnterprise"/>
+  </owl:Class>
+  <owl:Class rdf:about="#LegalDocument">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <rdf:Property rdf:ID="number"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+        <owl:onProperty rdf:resource="http://schema.opengovdata.ru/core/regions.owl#nameRU"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Нормативно-правовой документ</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Legal document</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#LegalEntity"/>
+  </owl:Class>
+  <owl:Class rdf:ID="FederalLaw">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Федеральный закон</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal law</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#LegalDocument"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ConstitutionalCourt">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Constitutional court</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Court"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#StateEnterprise">
+    <rdfs:subClassOf rdf:resource="#UnitaryEnterprise"/>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Kazennoe entrerpise</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#GovBody">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Government body</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:maxCardinality>
+        <owl:onProperty>
+          <rdf:Property rdf:ID="suborganizationOf"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:maxCardinality>
+        <owl:onProperty>
+          <rdf:Property rdf:ID="relatedToLevel"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:maxCardinality>
+        <owl:onProperty>
+          <rdf:Property rdf:ID="memberOfBranch"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Орган государственной власти</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >0</owl:minCardinality>
+        <owl:onProperty>
+          <rdf:Property rdf:ID="officialWebsite"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Entity"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Court">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Court</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <rdfs:subClassOf rdf:resource="#GovBody"/>
+  </owl:Class>
+  <owl:Class rdf:ID="LocalAdministration">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Local administration</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <rdfs:subClassOf rdf:resource="#Local"/>
+  </owl:Class>
+  <owl:Class rdf:ID="FederalService">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal service</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <rdfs:subClassOf rdf:resource="#Central"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ElectionComission">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Избирательная комиссия</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Election comission</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#GovBody"/>
+  </owl:Class>
+  <owl:Class rdf:ID="GovBodyType">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Type of government body</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Type of government body</dc:description>
+    <rdfs:subClassOf rdf:resource="#Entity"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Order">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Приказ</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Order</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#LegalDocument"/>
+  </owl:Class>
+  <rdf:Property rdf:ID="datePublished">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Дата публикации</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >date published</rdfs:label>
+  </rdf:Property>
+  <rdf:Property rdf:about="#memberOfBranch">
+    <rdfs:range rdf:resource="#GovBranch"/>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Member of government branch</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >member of branch</rdfs:label>
+  </rdf:Property>
+  <rdf:Property rdf:about="#articleNumber">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Номер статьи юридического документа</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >article number</rdfs:label>
+  </rdf:Property>
+  <rdf:Property rdf:about="#relatedToLevel">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Related to government level</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >On government level</dc:description>
+    <rdfs:range rdf:resource="#GovLevel"/>
+  </rdf:Property>
+  <rdf:Property rdf:about="#suborganizationOf">
+    <rdfs:range rdf:resource="#GovBody"/>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Подчинённая организации</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >suborganization of</rdfs:label>
+  </rdf:Property>
+  <rdf:Property rdf:about="#number">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Номер документа</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >number</rdfs:label>
+  </rdf:Property>
+  <rdf:Property rdf:about="#officialWebsite">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >official website</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Официальный веб-сайт</dc:description>
+  </rdf:Property>
+  <rdf:Property rdf:about="#text">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >text</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </rdf:Property>
+  <rdf:Property rdf:about="#isInConstitutionArticle">
+    <rdfs:range rdf:resource="#ConstitutionArticle"/>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Упоминается в статье конституции</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >constitution article</rdfs:label>
+  </rdf:Property>
+  <rdf:Property rdf:ID="isLegalTerm">
+    <rdfs:range rdf:resource="#LegalTerm"/>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Является юридически закреплённым понятием</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >is legal term</rdfs:label>
+  </rdf:Property>
+  <rdf:Property rdf:about="#isArticleOf">
+    <rdfs:range rdf:resource="#LegalDocument"/>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Статья в документе</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >is article of</rdfs:label>
+  </rdf:Property>
+  <ConstitutionalTerm rdf:ID="SupremeCommercialCourt">
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <regions:nameRU rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Высший Арбитражный Суд Российской Федерации</regions:nameRU>
+    <regions:nameEN rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Supreme commercial court of Russian Federation</regions:nameEN>
+    <relatedToLevel>
+      <GovLevel rdf:ID="Federal_level">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Federal</rdfs:label>
+        <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ru</dc:language>
+        <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Federal level of the government</dc:description>
+        <regions:nameEN rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Federal</regions:nameEN>
+        <regions:nameRU rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Федеральный</regions:nameRU>
+      </GovLevel>
+    </relatedToLevel>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Высший Арбитражный Суд Российской Федерации</dc:description>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Supreme commercial court of Russian Federation</rdfs:label>
+    <memberOfBranch>
+      <ConstitutionalTerm rdf:ID="Judiciary_branch">
+        <isInConstitutionArticle>
+          <ConstitutionArticle rdf:ID="ConstitutionArticle_10">
+            <isArticleOf>
+              <Constitution rdf:ID="ConstitutionOfRussia">
+                <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Конституция Российской Федерации</dc:description>
+                <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Constitution of russia</rdfs:label>
+                <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >ru</dc:language>
+                <regions:nameRU rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Конституция Российской Федерации</regions:nameRU>
+              </Constitution>
+            </isArticleOf>
+            <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Конституция России. Статья 10</dc:description>
+            <text rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Государственная власть в Российской Федерации осуществляется на основе разделения на законодательную, исполнительную и судебную. Органы законодательной, исполнительной и судебной власти самостоятельны.</text>
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Constitution article_10</rdfs:label>
+            <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >ru</dc:language>
+            <articleNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >10</articleNumber>
+          </ConstitutionArticle>
+        </isInConstitutionArticle>
+        <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Judiciary branch of government</dc:description>
+        <regions:nameRU rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Судебная власть</regions:nameRU>
+        <regions:nameEN rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Judiciary branch of government</regions:nameEN>
+        <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ru</dc:language>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Judiciary</rdfs:label>
+        <rdf:type rdf:resource="#GovBranch"/>
+      </ConstitutionalTerm>
+    </memberOfBranch>
+    <isInConstitutionArticle>
+      <ConstitutionArticle rdf:ID="ConstitutionArticle_127">
+        <isArticleOf rdf:resource="#ConstitutionOfRussia"/>
+        <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Конституция России. Статья 127</dc:description>
+        <text rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Высший Арбитражный Суд Российской Федерации является высшим судебным органом по разрешению экономических споров и иных дел, рассматриваемых арбитражными судами, осуществляет в предусмотренных федеральным законом процессуальных формах судебный надзор за их деятельностью и дает разъяснения по вопросам судебной практики.</text>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Constitution article_127</rdfs:label>
+        <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ru</dc:language>
+        <articleNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >127</articleNumber>
+      </ConstitutionArticle>
+    </isInConstitutionArticle>
+    <rdf:type rdf:resource="#CommercialCourt"/>
+    <officialWebsite rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >http://www.arbitr.ru</officialWebsite>
+  </ConstitutionalTerm>
+  <Corporation rdf:ID="Rosnano">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The Russian Corporation of Nanotechnologies (RUSNANO)</rdfs:label>
+    <regions:nameEN rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The Russian Corporation of Nanotechnologies (RUSNANO)</regions:nameEN>
+    <relatedToLevel>
+      <GovLevel rdf:ID="Other_level">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Other</rdfs:label>
+        <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ru</dc:language>
+        <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Other level of the government. Used for russian prosecution and other gov. bodies not related </dc:description>
+        <regions:nameRU rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Иной</regions:nameRU>
+        <regions:nameEN rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Other</regions:nameEN>
+      </GovLevel>
+    </relatedToLevel>
+    <regions:nameRU rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Государственная корпорация «Российская корпорация нанотехнологий» (РОСНАНО)</regions:nameRU>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <suborganizationOf>
+      <ConstitutionalTerm rdf:ID="GovernmentOfRussia">
+        <officialWebsite rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >http://www.government.ru</officialWebsite>
+        <relatedToLevel rdf:resource="#Federal_level"/>
+        <memberOfBranch>
+          <ConstitutionalTerm rdf:ID="Executive">
+            <isInConstitutionArticle rdf:resource="#ConstitutionArticle_10"/>
+            <regions:nameEN rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Executive branch of the government</regions:nameEN>
+            <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Executive branch of the government</dc:description>
+            <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >ru</dc:language>
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Executive</rdfs:label>
+            <regions:nameRU rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Исполнительная власть</regions:nameRU>
+            <rdf:type rdf:resource="#GovBranch"/>
+          </ConstitutionalTerm>
+        </memberOfBranch>
+        <rdf:type rdf:resource="#FedGovernment"/>
+        <regions:nameEN rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Government of Russia</regions:nameEN>
+        <regions:nameRU rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Правительство Российской Федерации</regions:nameRU>
+        <isInConstitutionArticle>
+          <ConstitutionArticle rdf:ID="ConstitutionArticle_11">
+            <isArticleOf rdf:resource="#ConstitutionOfRussia"/>
+            <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Конституция России. Статья 11</dc:description>
+            <text rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >1. Государственную власть в Российской Федерации осуществляют Президент Российской Федерации, Федеральное Собрание (Совет Федерации и Государственная Дума), Правительство Российской Федерации, суды Российской Федерации.&#xD;
+2. Государственную власть в субъектах Российской Федерации осуществляют образуемые ими органы государственной власти.&#xD;
+3. Разграничение предметов ведения и полномочий между органами государственной власти Российской Федерации и органами государственной власти субъектов Российской Федерации осуществляется настоящей Конституцией, Федеративным и иными договорами о разграничении предметов ведения и полномочий.</text>
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Constitution article_11</rdfs:label>
+            <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >ru</dc:language>
+            <articleNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >11</articleNumber>
+          </ConstitutionArticle>
+        </isInConstitutionArticle>
+        <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Правительство Российской Федерации</dc:description>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Government of Russia</rdfs:label>
+        <suborganizationOf>
+          <President rdf:ID="PresidentOfRussia">
+            <regions:nameRU rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Президент Российской Федерации</regions:nameRU>
+            <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >ru</dc:language>
+            <isInConstitutionArticle rdf:resource="#ConstitutionArticle_11"/>
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Russian President</rdfs:label>
+            <relatedToLevel rdf:resource="#Federal_level"/>
+            <rdf:type rdf:resource="#ConstitutionalTerm"/>
+            <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Президент Российской Федерации</dc:description>
+            <regions:nameEN rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Russian President</regions:nameEN>
+            <memberOfBranch rdf:resource="#Executive"/>
+            <officialWebsite rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >http://www.kremlin.ru</officialWebsite>
+          </President>
+        </suborganizationOf>
+        <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ru</dc:language>
+      </ConstitutionalTerm>
+    </suborganizationOf>
+    <officialWebsite rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >http://www.rusnano.com</officialWebsite>
+    <memberOfBranch>
+      <GovBranch rdf:ID="Other_power">
+        <regions:nameRU rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Иной орган власти</regions:nameRU>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Other power</rdfs:label>
+        <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ru</dc:language>
+        <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        ></dc:description>
+        <regions:nameEN rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Other government power</regions:nameEN>
+      </GovBranch>
+    </memberOfBranch>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Государственная корпорация «Российская корпорация нанотехнологий» (РОСНАНО)</dc:description>
+  </Corporation>
+  <FinancialFund rdf:ID="PensionFund">
+    <regions:nameRU rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Пенсионный фонд Российской Федерации</regions:nameRU>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <officialWebsite rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >http://www.pfrf.ru</officialWebsite>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Pension fund</rdfs:label>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Пенсионный фонд Российской Федерации</dc:description>
+    <relatedToLevel rdf:resource="#Federal_level"/>
+    <regions:nameEN rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Pension Fund of Russian Federation</regions:nameEN>
+    <suborganizationOf rdf:resource="#GovernmentOfRussia"/>
+    <memberOfBranch rdf:resource="#Other_power"/>
+  </FinancialFund>
+  <ConstitutionArticle rdf:ID="ConstitutionArticle_2">
+    <articleNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >2</articleNumber>
+    <text rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Человек, его права и свободы являются высшей ценностью. Признание, соблюдение и защита прав и свобод человека и гражданина — обязанность государства.</text>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Constitution article 2</rdfs:label>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Конституция Российской Федерации. Статья 2</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <isArticleOf rdf:resource="#ConstitutionOfRussia"/>
+  </ConstitutionArticle>
+  <ConstitutionArticle rdf:ID="ConstitutionArticle_1">
+    <isArticleOf rdf:resource="#ConstitutionOfRussia"/>
+    <text rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >1. Российская Федерация — Россия есть демократическое федеративное правовое государство с республиканской формой правления.&#xD;
+2. Наименования Российская Федерация и Россия равнозначны.</text>
+    <articleNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >1</articleNumber>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Constitution article_1</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Конституция России. Статья 1</dc:description>
+  </ConstitutionArticle>
+  <ConstitutionalTerm rdf:ID="Legislative_branch">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Законодательная ветвь власти</dc:description>
+    <regions:nameEN rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Legislative branch</regions:nameEN>
+    <isInConstitutionArticle rdf:resource="#ConstitutionArticle_10"/>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Legislative</rdfs:label>
+    <regions:nameRU rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Законодательная власть</regions:nameRU>
+    <rdf:type rdf:resource="#GovBranch"/>
+  </ConstitutionalTerm>
+  <ConstitutionArticle rdf:ID="ConstitutionArticle_9">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Конституция Российской Федерации. Статья 9</dc:description>
+    <isArticleOf rdf:resource="#ConstitutionOfRussia"/>
+    <text rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >1. Земля и другие природные ресурсы используются и охраняются в Российской Федерации как основа жизни и деятельности народов, проживающих на соответствующей территории.
+2. Земля и другие природные ресурсы могут находиться в частной, государственной, муниципальной и иных формах собственности.</text>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Constitution article 9</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <articleNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >9</articleNumber>
+  </ConstitutionArticle>
+  <ConstitutionArticle rdf:ID="ConstitutionArticle_13">
+    <articleNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >13</articleNumber>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Конституция Российской Федерации. Статья 13</dc:description>
+    <text rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >1. В Российской Федерации признается идеологическое многообразие.
+2. Никакая идеология не может устанавливаться в качестве государственной или обязательной.
+3. В Российской Федерации признаются политическое многообразие, многопартийность.
+4. Общественные объединения равны перед законом.
+5. Запрещается создание и деятельность общественных объединений, цели или действия которых направлены на насильственное изменение основ конституционного строя и нарушение целостности Российской Федерации, подрыв безопасности государства, создание вооруженных формирований, разжигание социальной, расовой, национальной и религиозной розни.</text>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Constitution article 13</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <isArticleOf rdf:resource="#ConstitutionOfRussia"/>
+  </ConstitutionArticle>
+  <Bank rdf:ID="BankOfRussia">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Centrobank</rdfs:label>
+    <memberOfBranch rdf:resource="#Other_power"/>
+    <rdf:type rdf:resource="#ConstitutionalTerm"/>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Банк России</dc:description>
+    <relatedToLevel rdf:resource="#Federal_level"/>
+    <regions:nameEN rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Bank Of Russia</regions:nameEN>
+    <regions:nameRU rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Центральный банк Российской Федерации</regions:nameRU>
+    <isInConstitutionArticle>
+      <ConstitutionArticle rdf:ID="ConstitutionArticle_75">
+        <isArticleOf rdf:resource="#ConstitutionOfRussia"/>
+        <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Конституция России. Статья 75</dc:description>
+        <text rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Денежной единицей в Российской Федерации является рубль. Денежная эмиссия осуществляется исключительно Центральным банком Российской Федерации. Введение и эмиссия других денег в Российской Федерации не допускаются.&#xD;
+2. Защита и обеспечение устойчивости рубля — основная функция Центрального банка Российской Федерации, которую он осуществляет независимо от других органов государственной власти.&#xD;
+3. Система налогов, взимаемых в федеральный бюджет, и общие принципы налогообложения и сборов в Российской Федерации устанавливаются федеральным законом.&#xD;
+4. Государственные займы выпускаются в порядке, определяемом федеральным законом, и размещаются на добровольной основе.</text>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Constitution article_75</rdfs:label>
+        <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ru</dc:language>
+        <articleNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >75</articleNumber>
+      </ConstitutionArticle>
+    </isInConstitutionArticle>
+    <officialWebsite rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >http://www.cbr.ru</officialWebsite>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+  </Bank>
+  <ConstitutionArticle rdf:ID="ConstitutionArticle_101">
+    <isArticleOf rdf:resource="#ConstitutionOfRussia"/>
+    <articleNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >101</articleNumber>
+    <text rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >1. Совет Федерации избирает из своего состава Председателя Совета Федерации и его заместителей. Государственная Дума избирает из своего состава Председателя Государственной Думы и его заместителей.&#xD;
+2. Председатель Совета Федерации и его заместители, Председатель Государственной Думы и его заместители ведут заседания и ведают внутренним распорядком палаты.&#xD;
+3. Совет Федерации и Государственная Дума образуют комитеты и комиссии, проводят по вопросам своего ведения парламентские слушания.&#xD;
+4. Каждая из палат принимает свой регламент и решает вопросы внутреннего распорядка своей деятельности.&#xD;
+5. Для осуществления контроля за исполнением федерального бюджета Совет Федерации и Государственная Дума образуют Счетную палату, состав и порядок деятельности которой определяются федеральным законом.</text>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Constitution article_101</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+  </ConstitutionArticle>
+  <ConstitutionArticle rdf:ID="ConstitutionArticle_8">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Конституция Российской Федерации. Статья 8</dc:description>
+    <articleNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >8</articleNumber>
+    <text rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >1. В Российской Федерации гарантируются единство экономического пространства, свободное перемещение товаров, услуг и финансовых средств, поддержка конкуренции, свобода экономической деятельности.
+2. В Российской Федерации признаются и защищаются равным образом частная, государственная, муниципальная и иные формы собственности.</text>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Constitution article 8</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <isArticleOf rdf:resource="#ConstitutionOfRussia"/>
+  </ConstitutionArticle>
+  <Corporation rdf:ID="Rosatom">
+    <regions:nameEN rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >State Atomic Energy Corporation "Rosatom"</regions:nameEN>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Государственная корпорация по атомной энергии "Росатом"</dc:description>
+    <suborganizationOf rdf:resource="#GovernmentOfRussia"/>
+    <officialWebsite rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >http://www.rosatom.ru</officialWebsite>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <memberOfBranch rdf:resource="#Other_power"/>
+    <regions:nameRU rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Государственная корпорация по атомной энергии "Росатом"</regions:nameRU>
+    <relatedToLevel rdf:resource="#Other_level"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Rosatom</rdfs:label>
+  </Corporation>
+  <ConstitutionArticle rdf:ID="ConstitutionArticle_7">
+    <articleNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >7</articleNumber>
+    <isArticleOf rdf:resource="#ConstitutionOfRussia"/>
+    <text rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >1. Российская Федерация — социальное государство, политика которого направлена на создание условий, обеспечивающих достойную жизнь и свободное развитие человека.
+2. В Российской Федерации охраняются труд и здоровье людей, устанавливается гарантированный минимальный размер оплаты труда, обеспечивается государственная поддержка семьи, материнства, отцовства и детства, инвалидов и пожилых граждан, развивается система социальных служб, устанавливаются государственные пенсии, пособия и иные гарантии социальной защиты.</text>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Конституция Российской Федерации. Статья 7</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Constitution article 7</rdfs:label>
+  </ConstitutionArticle>
+  <ConstitutionalTerm rdf:ID="Local_level">
+    <regions:nameRU rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Местное самоуправление</regions:nameRU>
+    <isInConstitutionArticle>
+      <ConstitutionArticle rdf:ID="ConstitutionArticle_12">
+        <isArticleOf rdf:resource="#ConstitutionOfRussia"/>
+        <articleNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >12</articleNumber>
+        <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Конституция России. Статья 12</dc:description>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Constitution article_12</rdfs:label>
+        <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ru</dc:language>
+        <text rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >В Российской Федерации признается и гарантируется местное самоуправление. Местное самоуправление в пределах своих полномочий самостоятельно. Органы местного самоуправления не входят в систему органов государственной власти.</text>
+      </ConstitutionArticle>
+    </isInConstitutionArticle>
+    <regions:nameEN rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Local level of government</regions:nameEN>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Местное самоуправление</dc:description>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Local</rdfs:label>
+    <rdf:type rdf:resource="#GovLevel"/>
+  </ConstitutionalTerm>
+  <ConstitutionArticle rdf:ID="ConstitutionArticle_15">
+    <text rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >1. Конституция Российской Федерации имеет высшую юридическую силу, прямое действие и применяется на всей территории Российской Федерации. Законы и иные правовые акты, принимаемые в Российской Федерации, не должны противоречить Конституции Российской Федерации.
+2. Органы государственной власти, органы местного самоуправления, должностные лица, граждане и их объединения обязаны соблюдать Конституцию Российской Федерации и законы.
+3. Законы подлежат официальному опубликованию. Неопубликованные законы не применяются. Любые нормативные правовые акты, затрагивающие права, свободы и обязанности человека и гражданина, не могут применяться, если они не опубликованы официально для всеобщего сведения.
+4. Общепризнанные принципы и нормы международного права и международные договоры Российской Федерации являются составной частью ее правовой системы. Если международным договором Российской Федерации установлены иные правила, чем предусмотренные законом, то применяются правила международного договора.</text>
+    <isArticleOf rdf:resource="#ConstitutionOfRussia"/>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Конституция Российской Федерации. Статья 15</dc:description>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Constitution article 15</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <articleNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >15</articleNumber>
+  </ConstitutionArticle>
+  <ConstitutionArticle rdf:ID="ConstitutionArticle_6">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Конституция Российской Федерации. Статья 6</dc:description>
+    <isArticleOf rdf:resource="#ConstitutionOfRussia"/>
+    <text rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >1. Гражданство Российской Федерации приобретается и прекращается в соответствии с федеральным законом, является единым и равным независимо от оснований приобретения.
+2. Каждый гражданин Российской Федерации обладает на ее территории всеми правами и свободами и несет равные обязанности, предусмотренные Конституцией Российской Федерации.
+3. Гражданин Российской Федерации не может быть лишен своего гражданства или права изменить его.</text>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Constitution article 6</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <articleNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >6</articleNumber>
+  </ConstitutionArticle>
+  <ConstitutionalTerm rdf:ID="AccountsChamber">
+    <relatedToLevel rdf:resource="#Federal_level"/>
+    <regions:nameRU rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Счетная Палата Российской Федерации</regions:nameRU>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <regions:nameEN rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ccounts Chamber of the Russian Federation</regions:nameEN>
+    <memberOfBranch rdf:resource="#Other_power"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ccounts Chamber of the Russian Federation</rdfs:label>
+    <rdf:type rdf:resource="#FinancialControl"/>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Счетная Палата Российской Федерации</dc:description>
+    <officialWebsite rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >http://www.ach.gov.ru</officialWebsite>
+  </ConstitutionalTerm>
+  <ConstitutionArticle rdf:ID="ConstitutionArticle_14">
+    <articleNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >14</articleNumber>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Конституция Российской Федерации. Статья 14</dc:description>
+    <text rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >1. Российская Федерация — светское государство. Никакая религия не может устанавливаться в качестве государственной или обязательной.
+2. Религиозные объединения отделены от государства и равны перед законом.</text>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Constitution article 14</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <isArticleOf rdf:resource="#ConstitutionOfRussia"/>
+  </ConstitutionArticle>
+  <FinancialFund rdf:ID="FundOfSocialInsurance">
+    <relatedToLevel rdf:resource="#Federal_level"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Fund of social insurance</rdfs:label>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></dc:description>
+    <officialWebsite rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >http://www.fss.ru</officialWebsite>
+    <memberOfBranch rdf:resource="#Other_power"/>
+    <regions:nameRU rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Фонд социального страхования Российской Федерации</regions:nameRU>
+    <suborganizationOf rdf:resource="#GovernmentOfRussia"/>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <regions:nameEN rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Fund of social insurance of Russian Federation</regions:nameEN>
+  </FinancialFund>
+  <FinancialFund rdf:ID="FederalMedicalInsuranceFund">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal medical insurance fund</rdfs:label>
+    <suborganizationOf rdf:resource="#GovernmentOfRussia"/>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <officialWebsite rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >http://www.ffoms.ru</officialWebsite>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Федеральный фонд обязательного медицинского страхования</dc:description>
+    <memberOfBranch rdf:resource="#Other_power"/>
+    <regions:nameRU rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Федеральный фонд обязательного медицинского страхования</regions:nameRU>
+    <regions:nameEN rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Federal medical insurance fund of Russia</regions:nameEN>
+    <relatedToLevel rdf:resource="#Federal_level"/>
+  </FinancialFund>
+  <ConstitutionArticle rdf:ID="ConstitutionArticle_5">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Конституция Российской Федерации. Статья 5</dc:description>
+    <isArticleOf rdf:resource="#ConstitutionOfRussia"/>
+    <text rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >1. Российская Федерация состоит из республик, краев, областей, городов федерального значения, автономной области, автономных округов — равноправных субъектов Российской Федерации.
+2. Республика (государство) имеет свою конституцию и законодательство. Край, область, город федерального значения, автономная область, автономный округ имеет свой устав и законодательство.
+3. Федеративное устройство Российской Федерации основано на ее государственной целостности, единстве системы государственной власти, разграничении предметов ведения и полномочий между органами государственной власти Российской Федерации и органами государственной власти субъектов Российской Федерации, равноправии и самоопределении народов в Российской Федерации.
+4. Во взаимоотношениях с федеральными органами государственной власти все субъекты Российской Федерации между собой равноправны.</text>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Constitution article 5</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <articleNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >5</articleNumber>
+  </ConstitutionArticle>
+  <GovLevel rdf:ID="Regional_level">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Regional</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Regional level of the government</dc:description>
+    <regions:nameEN rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Regional</regions:nameEN>
+    <regions:nameRU rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Региональный</regions:nameRU>
+  </GovLevel>
+  <ConstitutionArticle rdf:ID="ConstitutionArticle_4">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Конституция Российской Федерации. Статья 4</dc:description>
+    <articleNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >4</articleNumber>
+    <text rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >1. Суверенитет Российской Федерации распространяется на всю ее территорию.
+2. Конституция Российской Федерации и федеральные законы имеют верховенство на всей территории Российской Федерации.
+3. Российская Федерация обеспечивает целостность и неприкосновенность своей территории.</text>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Constitution article 4</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <isArticleOf rdf:resource="#ConstitutionOfRussia"/>
+  </ConstitutionArticle>
+  <ProsecutionOffice rdf:ID="GeneralProsecutionOffice">
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >General prosecution office</rdfs:label>
+    <regions:nameRU rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Генеральная прокуратура Российской Федерации</regions:nameRU>
+    <relatedToLevel rdf:resource="#Federal_level"/>
+    <memberOfBranch rdf:resource="#Other_power"/>
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Генеральная прокуратура Российской Федерации</dc:description>
+    <regions:nameEN rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The General Prosecution office of Russian Federation</regions:nameEN>
+    <rdf:type rdf:resource="#ConstitutionalTerm"/>
+    <officialWebsite rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >http://www.genproc.gov.ru</officialWebsite>
+    <isInConstitutionArticle>
+      <ConstitutionArticle rdf:ID="ConstitutionArticle_129">
+        <isArticleOf rdf:resource="#ConstitutionOfRussia"/>
+        <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Конституция России. Статья 129</dc:description>
+        <text rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Прокуратура Российской Федерации составляет единую централизованную систему с подчинением нижестоящих прокуроров вышестоящим и Генеральному прокурору Российской Федерации.&#xD;
+2. Генеральный прокурор Российской Федерации назначается на должность и освобождается от должности Советом Федерации по представлению Президента Российской Федерации.&#xD;
+3. Прокуроры субъектов Российской Федерации назначаются Генеральным прокурором Российской Федерации по согласованию с ее субъектами.&#xD;
+4. Иные прокуроры назначаются Генеральным прокурором Российской Федерации.&#xD;
+5. Полномочия, организация и порядок деятельности прокуратуры Российской Федерации определяются федеральным законом.</text>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Constitution article_129</rdfs:label>
+        <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ru</dc:language>
+        <articleNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >129</articleNumber>
+      </ConstitutionArticle>
+    </isInConstitutionArticle>
+  </ProsecutionOffice>
+  <ConstitutionArticle rdf:ID="ConstitutionArticle_16">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Конституция Российской Федерации. Статья 16</dc:description>
+    <isArticleOf rdf:resource="#ConstitutionOfRussia"/>
+    <text rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >1. Положения настоящей главы Конституции составляют основы конституционного строя Российской Федерации и не могут быть изменены иначе как в порядке, установленном настоящей Конституцией.
+2. Никакие другие положения настоящей Конституции не могут противоречить основам конституционного строя Российской Федерации.</text>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Constitution article 16</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <articleNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >16</articleNumber>
+  </ConstitutionArticle>
+  <ConstitutionArticle rdf:ID="ConstitutionArticle_3">
+    <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Конституция Российской Федерции. Статья 3</dc:description>
+    <articleNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >3</articleNumber>
+    <text rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >1. Носителем суверенитета и единственным источником власти в Российской Федерации является ее многонациональный народ.
+2. Народ осуществляет свою власть непосредственно, а также через органы государственной власти и органы местного самоуправления.
+3. Высшим непосредственным выражением власти народа являются референдум и свободные выборы.
+4. Никто не может присваивать власть в Российской Федерации. Захват власти или присвоение властных полномочий преследуются по федеральному закону.</text>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Constitution article 3</rdfs:label>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ru</dc:language>
+    <isArticleOf rdf:resource="#ConstitutionOfRussia"/>
+  </ConstitutionArticle>
+</rdf:RDF>
+
+<!-- Created with TopBraid -->
